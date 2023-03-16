@@ -26,6 +26,10 @@
       <file href="documento.html" />
       <file href="js/abrirDocumento.js" />
       <file href="js/guardarErrores.js" />
+      <file href="img/ErrorTable.png"/>
+      <file href="img/selectText.png"/>
+      <file href="img/DisplayErrorTable.png"/>
+      <file href="img/SelectType.png"/>
     </resource>
     <resource identifier="RES-F7E742879C540318373042027FC40CB2" type="webcontent" href="documento.html" adlcp:scormtype="asset">
       <file href="documento.html" />
