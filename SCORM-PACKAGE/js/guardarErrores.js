@@ -82,6 +82,10 @@ function abrirPopup2(){
     cerrarPopup();
 }
 
+function abrirPopup3(){
+    document.getElementById("helpButton").style.display="block";
+}
+
 function cerrarPopup(){
     document.getElementById("t_errores").style.display="none";
     document.getElementById("delete_error").style.display="none";
