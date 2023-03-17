@@ -89,6 +89,7 @@
     background: #fff;
     padding: 40 px;
     margin: 20px auto;
+    border: none;
 }
 
 .popup{
@@ -162,13 +163,13 @@
   }
 
   .helpbtn {
-    height: 80px;
-    line-height: 80px;  
-    width: 80px;  
-    font-size: 2em;
+    height: 52px;
+    line-height: 50px;  
+    width: 50px;  
+    font-size: 1.7em;
     font-weight: bold;
-    border-radius: 50%;
-    background-color: #4CAF50;
+    border-radius:500%;
+    background-color: rgb(79, 128, 4);
     color: white;
     text-align: center;
     cursor: pointer;

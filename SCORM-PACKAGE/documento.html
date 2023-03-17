@@ -22,53 +22,62 @@
             .tg .tg-ucn3{font-style:italic;font-size:22px;text-align:center;vertical-align:top}
             .tg .tg-g4ju{font-style:italic;font-size:22px;border-color:inherit;text-align:center;vertical-align:top}
             </style>
-            <table class="tg">
+            <table >
               <tr>
                 <td>
-                    <input type="button" name="Understability" value="Understability" style='width: 112px; height:50px' onclick="gestionDeTipo(name);">
+                    <button  type="button" id="Understability" name="Understability" value="Understability" 
+                    style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Understability</button>
                 </td>                              
                 <td>
-                    <div type="button" name="HelpType" class="helpbtn" onclick="abrirPopup4();">?</div>
+                    <div type="button" name="HelpType" class="helpbtn" onclick="abrirPopup3('helpTopRight');">?</div>
                 </td>
               </tr>
               <tr>
                 <td>
-                    <input type="button" name="Redundancy" value="Redundancy" style='width: 112px; height:50px' onclick="gestionDeTipo(name);">
+                  <button  type="button" id="Redundancy" name="Redundancy" value="Redundancy" 
+                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Redundancy</button>
                 </td>                
               </tr>
               <tr>
                 <td>
-                    <input type="button" name="Completeness" value="Completeness" style='width: 112px; height:50px' onclick="gestionDeTipo(name);">
+                  <button  type="button" id="Completeness" name="Completeness" value="Completeness" 
+                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Completeness</button>
                 </td>                
               </tr>
               <tr>
                 <td>
-                    <input type="button" name="Ambiguity" value="Ambiguity" style='width: 112px; height:50px' onclick="gestionDeTipo(name);">
+                  <button  type="button" id="Ambiguity" name="Ambiguity" value="Ambiguity" 
+                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Ambiguity</button>
                 </td>                
               </tr>
               <tr>
                 <td>
-                    <input type="button" name="Consistency" value="Consistency" style='width: 112px; height:50px' onclick="gestionDeTipo(name);">
+                  <button  type="button" id="Consistency" name="Consistency" value="Consistency" 
+                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Consistency</button>
                 </td>                
               </tr>
               <tr>
                 <td>
-                    <input type="button" name="Organisation" value="Organisation" style='width: 112px; height:50px' onclick="gestionDeTipo(name);">
+                  <button  type="button" id="Organisation" name="Organisation" value="Organisation" 
+                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Organisation</button>
                 </td>                
               </tr>
               <tr>
                 <td>
-                    <input type="button" name="Traceability" value="Traceability" style='width: 112px; height:50px' onclick="gestionDeTipo(name);">
+                  <button  type="button" id="Traceability" name="Traceability" value="Traceability" 
+                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Traceability</button>
                 </td>                                
               </tr>
               <tr>
                 <td>
-                    <input type="button" name="Testability" value="Testability" style='width: 112px; height:50px' onclick="gestionDeTipo(name);">
+                  <button  type="button" id="Testability" name="Testability" value="Testability" 
+                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Testability</button>
                 </td>               
               </tr>
               <tr>
                 <td>
-                    <input type="button" name="Realism" value="Realism" style='width: 112px; height:50px' onclick="gestionDeTipo(name);">
+                  <button  type="button" id="Realism" name="Realism" value="Realism" 
+                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Realism</button>
                 </td>                
               </tr>
             </table>
@@ -76,13 +85,14 @@
 </center>
 
 <div class="botones">
-  <table width="100%">
+  <table>
   <tr>
-    <td><input type="button" class="ver" id="ver_errores" value="View Errors" onclick="abrirPopup();" style="width: 250px; height:40px; text-align:center;"></td>
-    <td></td>
-    <td><input type="button" value="help" onclick="abrirPopup3();" style='width: 250px; height:40px; text-align:center;' onclick="gestionDeTipo(name);"></td>
-    <td></td>
-    <td><input type="button" value="End review and see solution" onclick="abrirPopup1();" style='width: 250px; height:40px; text-align:center;' onclick="gestionDeTipo(name);"></td>
+    <td><input type="button" class="ver" id="ver_errores" value="View Errors" onclick="abrirPopup();" 
+      style="width: 250px; height:40px; text-align:center;"></td>
+    <td><input type="button" value="End review and see solution" onclick="abrirPopup1();" 
+      style='width: 250px; height:40px; text-align:center;'></td>
+      <td><input type="button" value="?" onclick="abrirPopup3('helpBottom');" 
+        class="helpbtn"></td>
   </tr>
 </div>
 
@@ -117,15 +127,30 @@
     </center>   
 </div>
 <!--help popup for user -->
-<div class="popup" id="helpButton">
+<div class="popup" id="helpBottom">
   <div class="cerrar" id="cerrar">
-      <svg onclick="cerrarPopup3();" class="bi-x-circle bi"
+      <svg onclick="cerrarPopup3('helpBottom');" class="bi-x-circle bi"
       width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor"  xmlns="http://www.w3.org/2000/svg">;
       <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
       <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
       <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
     </svg>
 </div>
+  <li>View errors: here you can see all the errors you have selected and delete those ones you would like to delete</li>
+  <li>End review and see solution: once you have finished, click this option to display your solution along the corrected document</li>
+</div>
+
+<div class="popup" id="helpTopRight">
+  <div class="cerrar" id="cerrar">
+      <svg onclick="cerrarPopup3('helpTopRight');" class="bi-x-circle bi"
+      width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor"  xmlns="http://www.w3.org/2000/svg">;
+      <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
+      <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+      <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
+    </svg>
+</div>
+  Here you will be able to relaste the selected text with the type of error, once selected it will be add to the error table.
+  <img src="img/SelectType.png" alt="Select type" style="width: 100%;">
 </div>
 
 <div class="popup" id="estasseguro2">

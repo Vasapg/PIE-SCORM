@@ -12,7 +12,8 @@ document.getElementById("documentoXML").addEventListener("mouseup",function(){
         oraciones.push(oracion.toString());     
         posiciones.push(textOffset + offset);
         colorDeFondo(document.getElementById("documentoXML").innerHTML,oracion.toString(),textOffset + offset);
-    }      
+    }
+    enableButtons();      
 });
 
 //Con esta función realtamos el texto seleccionado de amarillo
@@ -24,7 +25,8 @@ function colorDeFondo(texto,oracion,posicionDeOracion){
 
 //Se agrega el tipo de error
 function gestionDeTipo(tipo){
-    tipoDeError.push(tipo);    
+    tipoDeError.push(tipo);
+    disableButtons(); 
 }
 
 //Se crea y se muestra la tabla de errores
@@ -82,12 +84,8 @@ function abrirPopup2(){
     cerrarPopup();
 }
 
-function abrirPopup3(){
-    document.getElementById("helpButton").style.display="block";
-}
-
-function abrirPopup4(){
-    document.getElementById("helpButton").style.display="block";
+function abrirPopup3(window){
+    document.getElementById(window).style.display="block";
 }
 
 
@@ -105,7 +103,7 @@ function cerrarPopup(){
 function quitarColorDeFondo(posicion,oracion){
     document.getElementById("documentoXML").innerHTML = document.getElementById("documentoXML").innerHTML.replace("<span id=\"" + posicion + "\" class=\"color-de-fondo\">" + oracion + "</span>",oracion);
 }
-
+//Eliminar funciones redundantes
 function cerrarPopup1(){
     document.getElementById("estasseguro").style.display="none";
 }
@@ -114,8 +112,8 @@ function cerrarPopup2(){
     document.getElementById("estasseguro2").style.display="none";
 }
 
-function cerrarPopup3(){
-    document.getElementById("helpButton").style.display="none";
+function cerrarPopup3(window){
+    document.getElementById(window).style.display="none";
 }
 
 
@@ -138,4 +136,30 @@ function sigPagina(){
     window.location = "compSoluciones.html";
     localStorage.setItem("tipoDeError",JSON.stringify(tipoDeError));
     localStorage.setItem("oraciones",JSON.stringify(oraciones));
+}
+
+function enableButtons()
+{
+    document.getElementById("Understability").disabled = false;
+    document.getElementById("Redundancy").disabled = false;
+    document.getElementById("Completeness").disabled = false;
+    document.getElementById("Ambiguity").disabled = false;
+    document.getElementById("Consistency").disabled = false;
+    document.getElementById("Organisation").disabled = false;
+    document.getElementById("Traceability").disabled = false;
+    document.getElementById("Testability").disabled = false;
+    document.getElementById("Realism").disabled = false;
+}
+
+function disableButtons()
+{
+    document.getElementById("Understability").disabled = true;
+    document.getElementById("Redundancy").disabled = true;
+    document.getElementById("Completeness").disabled = true;
+    document.getElementById("Ambiguity").disabled = true;
+    document.getElementById("Consistency").disabled = true;
+    document.getElementById("Organisation").disabled = true;
+    document.getElementById("Traceabilty").disabled = true;
+    document.getElementById("Testability").disabled = true;
+    document.getElementById("Realism").disabled = true;
 }
