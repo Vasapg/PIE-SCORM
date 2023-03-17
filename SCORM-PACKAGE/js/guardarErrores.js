@@ -86,6 +86,11 @@ function abrirPopup3(){
     document.getElementById("helpButton").style.display="block";
 }
 
+function abrirPopup4(){
+    document.getElementById("helpButton").style.display="block";
+}
+
+
 function cerrarPopup(){
     document.getElementById("t_errores").style.display="none";
     document.getElementById("delete_error").style.display="none";
@@ -108,6 +113,11 @@ function cerrarPopup1(){
 function cerrarPopup2(){
     document.getElementById("estasseguro2").style.display="none";
 }
+
+function cerrarPopup3(){
+    document.getElementById("helpButton").style.display="none";
+}
+
 
 function eliminarError(){
     if(seleccionTabla != ''){

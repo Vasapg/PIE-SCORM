@@ -103,7 +103,7 @@
     border-color: black;
     position: absolute;
     left: 34%;
-    top: 25%;
+    top: 1%;
     display: none;
     overflow: auto;
 }
@@ -159,4 +159,17 @@
     position: absolute;
     right: 0;
     top: 0
+  }
+
+  .helpbtn {
+    height: 80px;
+    line-height: 80px;  
+    width: 80px;  
+    font-size: 2em;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    cursor: pointer;
   }
