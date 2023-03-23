@@ -5,14 +5,14 @@ grid-template-columns: 3fr 1fr;
 
 .wrapperButtoms{
 display: grid;
-grid-template-rows: 2fr, 1fr;
+grid-template-rows: 1fr, 1fr;
 }
 
 .documentoXML{
     background: #fff;
-    padding: 40 px;
+    padding: 80 px;
     width: 80%;
-    height: 450px;
+    height: 700px;
     margin: 20px auto;
     overflow: auto;
     float: left;
@@ -104,19 +104,20 @@ grid-template-rows: 2fr, 1fr;
 
 .popup{
     background: white;
-    width: 430px;
-    height: 150px;
+    height: 300px;
     color: black;
     text-align: center;
     padding: 33px;
     min-height: 250px;
     border-style: solid;
     border-color: black;
-    position: absolute;
-    left: 34%;
-    top: 1%;
+    position: fixed;
     display: none;
     overflow: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
 }
 
 #cerrar{

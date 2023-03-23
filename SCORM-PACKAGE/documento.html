@@ -17,15 +17,7 @@
 <!--This div will help me to organiza all buttons at the rigth side of the page-->
   <div class="wrapperButtoms">
     <div class="errores">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style type="text/css">
-            .tg  {border-collapse:collapse;border-spacing:0;}
-            .tg td{font-family:Arial, sans-serif;font-size:14px;;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-            .tg .tg-ucn3{font-style:italic;font-size:22px;text-align:center;vertical-align:top}
-            .tg .tg-g4ju{font-style:italic;font-size:22px;border-color:inherit;text-align:center;vertical-align:top}
-            </style>
-            <table >
+            <table>
               <tr>
                 <td>
                     <button  type="button" id="Understability" name="Understability" value="Understability" 
@@ -89,10 +81,15 @@
   <div class="botones">
     <table>
       <tr>
-        <td><input type="button" class="ver" id="ver_errores" value="View Errors" onclick="abrirPopup();" 
-          style="width: 250px; height:40px; text-align:center;"></td>
+        <td><input type="button" value="Select Error" onclick="abrirPopup3('helpBottom');" 
+          class="helpbtn">
+        </td>
         <td><input type="button" value="?" onclick="abrirPopup3('helpBottom');" 
           class="helpbtn"></td>
+      </tr>
+      <tr>
+        <td><input type="button" class="ver" id="ver_errores" value="View Errors" onclick="abrirPopup();" 
+          style="width: 250px; height:40px; text-align:center;"></td>
       </tr>
       <tr>
         <td><input type="button" value="End review and see solution" onclick="abrirPopup1();" 
@@ -103,6 +100,8 @@
 
   </div>
 </div>
+
+
 
 <div class="popup" id="estasseguro">
   <center>
