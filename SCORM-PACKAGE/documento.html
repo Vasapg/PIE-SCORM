@@ -8,13 +8,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src=""></script>
 </head>
+
 <body>
-
-<div id="documentoXML" class="documentoXML">
-</div>
-
-<center>
+<!--This div helps to organize the html page as grids, which can scale out with the given space in the page-->
+<div class="wrapper">
+<!--Document that is presented to the user TODO: Put it left in the page, rith errors-->
+  <div id="documentoXML" class="documentoXML"></div>
+<!--This div will help me to organiza all buttons at the rigth side of the page-->
+  <div class="wrapperButtoms">
     <div class="errores">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style type="text/css">
             .tg  {border-collapse:collapse;border-spacing:0;}
             .tg td{font-family:Arial, sans-serif;font-size:14px;;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
@@ -82,22 +85,23 @@
               </tr>
             </table>
     </div>
-</center>
 
-<div class="botones">
-  <table>
-  <tr>
-    <td><input type="button" class="ver" id="ver_errores" value="View Errors" onclick="abrirPopup();" 
-      style="width: 250px; height:40px; text-align:center;"></td>
-    <td><input type="button" value="End review and see solution" onclick="abrirPopup1();" 
-      style='width: 250px; height:40px; text-align:center;'></td>
-      <td><input type="button" value="?" onclick="abrirPopup3('helpBottom');" 
-        class="helpbtn"></td>
-  </tr>
-</div>
+  <div class="botones">
+    <table>
+      <tr>
+        <td><input type="button" class="ver" id="ver_errores" value="View Errors" onclick="abrirPopup();" 
+          style="width: 250px; height:40px; text-align:center;"></td>
+        <td><input type="button" value="?" onclick="abrirPopup3('helpBottom');" 
+          class="helpbtn"></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="End review and see solution" onclick="abrirPopup1();" 
+          style='width: 250px; height:40px; text-align:center;'></td>
+      </tr>
+    </table>
+  </div>
 
-<div id="sig_pagina">
-
+  </div>
 </div>
 
 <div class="popup" id="estasseguro">

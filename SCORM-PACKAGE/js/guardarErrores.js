@@ -159,7 +159,7 @@ function disableButtons()
     document.getElementById("Ambiguity").disabled = true;
     document.getElementById("Consistency").disabled = true;
     document.getElementById("Organisation").disabled = true;
-    document.getElementById("Traceabilty").disabled = true;
+    document.getElementById("Traceability").disabled = true;
     document.getElementById("Testability").disabled = true;
     document.getElementById("Realism").disabled = true;
 }
