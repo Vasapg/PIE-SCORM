@@ -10,10 +10,11 @@ grid-template-rows: 1fr, 1fr;
 
 .documentoXML{
     background: #fff;
-    padding: 80 px;
+    padding:  30px;
     width: 80%;
-    height: 700px;
-    margin: 20px auto;
+    height: 800px;
+    margin: 10px auto;
+    margin-left: 10%;
     overflow: auto;
     float: left;
 }
@@ -22,6 +23,7 @@ grid-template-rows: 1fr, 1fr;
     position: relative;
     width: 300px;
     height: 40px;
+    margin-top: 90%;
 }
 
 .color-de-fondo{
@@ -99,6 +101,7 @@ grid-template-rows: 1fr, 1fr;
     background: #fff;
     padding: 40 px;
     margin: 20px auto;
+    margin-left: 30%;
     border: none;
 }
 
@@ -174,9 +177,9 @@ grid-template-rows: 1fr, 1fr;
   }
 
   .helpbtn {
-    height: 52px;
-    line-height: 50px;  
-    width: 50px;  
+    height: 42px;
+    line-height: 40px;  
+    width: 40px;  
     font-size: 1.7em;
     font-weight: bold;
     border-radius:500%;

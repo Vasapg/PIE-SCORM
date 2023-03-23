@@ -15,92 +15,82 @@
 <!--Document that is presented to the user TODO: Put it left in the page, rith errors-->
   <div id="documentoXML" class="documentoXML"></div>
 <!--This div will help me to organiza all buttons at the rigth side of the page-->
-  <div class="wrapperButtoms">
-    <div class="errores">
-            <table>
-              <tr>
-                <td>
-                    <button  type="button" id="Understability" name="Understability" value="Understability" 
-                    style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Understability</button>
-                </td>                              
-                <td>
-                    <div type="button" name="HelpType" class="helpbtn" onclick="abrirPopup3('helpTopRight');">?</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <button  type="button" id="Redundancy" name="Redundancy" value="Redundancy" 
-                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Redundancy</button>
-                </td>                
-              </tr>
-              <tr>
-                <td>
-                  <button  type="button" id="Completeness" name="Completeness" value="Completeness" 
-                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Completeness</button>
-                </td>                
-              </tr>
-              <tr>
-                <td>
-                  <button  type="button" id="Ambiguity" name="Ambiguity" value="Ambiguity" 
-                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Ambiguity</button>
-                </td>                
-              </tr>
-              <tr>
-                <td>
-                  <button  type="button" id="Consistency" name="Consistency" value="Consistency" 
-                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Consistency</button>
-                </td>                
-              </tr>
-              <tr>
-                <td>
-                  <button  type="button" id="Organisation" name="Organisation" value="Organisation" 
-                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Organisation</button>
-                </td>                
-              </tr>
-              <tr>
-                <td>
-                  <button  type="button" id="Traceability" name="Traceability" value="Traceability" 
-                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Traceability</button>
-                </td>                                
-              </tr>
-              <tr>
-                <td>
-                  <button  type="button" id="Testability" name="Testability" value="Testability" 
-                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Testability</button>
-                </td>               
-              </tr>
-              <tr>
-                <td>
-                  <button  type="button" id="Realism" name="Realism" value="Realism" 
-                  style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Realism</button>
-                </td>                
-              </tr>
-            </table>
-    </div>
-
   <div class="botones">
     <table>
       <tr>
-        <td><input type="button" value="Select Error" onclick="abrirPopup3('helpBottom');" 
-          class="helpbtn">
+        <td><input type="button" value="Select Error" onclick="abrirPopup('TiposDeError');" 
+          style='width: 250px; height:40px; text-align:center;'>
         </td>
-        <td><input type="button" value="?" onclick="abrirPopup3('helpBottom');" 
+        <td><input type="button" value="?" onclick="abrirPopup('helpBottom');" 
           class="helpbtn"></td>
       </tr>
       <tr>
-        <td><input type="button" class="ver" id="ver_errores" value="View Errors" onclick="abrirPopup();" 
+        <td><input type="button" class="ver" id="ver_errores" value="View Errors" onclick="abrirPopup('t_errores');" 
           style="width: 250px; height:40px; text-align:center;"></td>
       </tr>
       <tr>
-        <td><input type="button" value="End review and see solution" onclick="abrirPopup1();" 
+        <td><input type="button" value="End review and see solution" onclick="abrirPopup('estasseguro');" 
           style='width: 250px; height:40px; text-align:center;'></td>
       </tr>
     </table>
   </div>
-
-  </div>
 </div>
 
+<div class="popup" id="TiposDeError">
+  <div class="errores">
+    <div class="cerrar" id="cerrar">
+      <svg onclick="cerrarPopup3('TiposDeError');" class="bi bi-x-circle" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
+          <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+          <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
+      </svg>
+  </div>
+    <table>
+      <tr>
+       <td>
+           <button  type="button" id="Understability" name="Understability" value="Understability" 
+           style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Understability</button>
+        </td>                             
+       <td>
+         <button  type="button" id="Redundancy" name="Redundancy" value="Redundancy" 
+         style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Redundancy</button>
+       </td>                
+       <td>
+         <button  type="button" id="Completeness" name="Completeness" value="Completeness" 
+         style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Completeness</button>
+        </td>                
+      </tr>
+      <tr>
+       <td>
+         <button  type="button" id="Ambiguity" name="Ambiguity" value="Ambiguity" 
+         style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Ambiguity</button>
+       </td>                
+       <td>
+         <button  type="button" id="Consistency" name="Consistency" value="Consistency" 
+          style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Consistency</button>
+       </td>                
+       <td>
+         <button  type="button" id="Organisation" name="Organisation" value="Organisation" 
+          style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Organisation</button>
+       </td>                
+     </tr>
+     <tr>
+       <td>
+          <button  type="button" id="Traceability" name="Traceability" value="Traceability" 
+          style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Traceability</button>
+        </td>                                
+       <td>
+         <button  type="button" id="Testability" name="Testability" value="Testability" 
+          style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Testability</button>
+       </td>               
+       <td>
+         <button  type="button" id="Realism" name="Realism" value="Realism" 
+          style='width: 112px; height:50px' onclick="gestionDeTipo(name);" disabled>Realism</button>
+       </td>                
+     </tr>
+   </table>
+  </div>
+</div>
 
 
 <div class="popup" id="estasseguro">
@@ -126,7 +116,7 @@
       <input type="button" value="Display Error Table" onclick="tablaErrores();" class="display_table_error" id="quitar_boton">
     </center> 
     <center>
-      <input type="button" value="Delete this error" onclick="abrirPopup2();" class="delete_error" id="delete_error" style='width: 150px; height:40px'>
+      <input type="button" value="Delete this error" onclick="abrirPopup('estasseguro2');" class="delete_error" id="delete_error" style='width: 150px; height:40px'>
     </center>   
 </div>
 <!--help popup for user -->
@@ -166,6 +156,7 @@
   <input type="button" value="Yes" onclick="eliminarError();" class="siestoyseguro" style='width: 150px; height:40px'>
   <input type="button" value="No" onclick="cerrarPopup2();" class="noestoyseguro" style='width: 150px; height:40px'>
 </div>
+
 </body>
 <script type="text/javascript" src="js/guardarErrores.js"></script>
 <script type="text/javascript" src="js/abrirDocumento.js"></script>

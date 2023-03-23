@@ -70,22 +70,9 @@ function tablaErrores(){
     });
 }
 
-function abrirPopup(){
-    document.getElementById("t_errores").style.display="block";
-    document.getElementById("quitar_boton").style.display="block";
-}
-
-function abrirPopup1(){
-    document.getElementById("estasseguro").style.display="block";
-}
-
-function abrirPopup2(){
-    document.getElementById("estasseguro2").style.display="block";
-    cerrarPopup();
-}
-
-function abrirPopup3(window){
+function abrirPopup(window){
     document.getElementById(window).style.display="block";
+    document.getElementById("quitar_boton").style.display="block";
 }
 
 
