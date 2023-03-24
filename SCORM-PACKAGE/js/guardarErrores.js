@@ -73,6 +73,8 @@ function tablaErrores(){
 function abrirPopup(window){
     document.getElementById(window).style.display="block";
     document.getElementById("quitar_boton").style.display="block";
+    if(window == "t_errores")
+            tablaErrores();
 }
 
 
