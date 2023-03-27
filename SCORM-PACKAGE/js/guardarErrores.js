@@ -9,24 +9,51 @@ document.getElementById("documentoXML").addEventListener("mouseup",function(){
         var offset = oracion.anchorOffset;
         var text = oracion.anchorNode.data;
         var textOffset = document.getElementById("documentoXML").innerHTML.indexOf(text);
-        oraciones.push(oracion.toString());     
+        oraciones.push(oracion.toString());
         posiciones.push(textOffset + offset);
-        colorDeFondo(document.getElementById("documentoXML").innerHTML,oracion.toString(),textOffset + offset);
-    }
-    enableButtons();      
+        enableButtons();
+        abrirPopup('TiposDeError');
+    }  
 });
 
 //Con esta función realtamos el texto seleccionado de amarillo
-function colorDeFondo(texto,oracion,posicionDeOracion){       
-    texto = texto.slice(0,posicionDeOracion) + "<span id = " + posicionDeOracion + " class='color-de-fondo'>" + oracion + "</span>" + texto.slice(posicionDeOracion + oracion.length,texto.length);       
+function colorDeFondo(texto, oracion, tipo){           
+    texto = texto.replace(oracion, '<div><div class="bocadillo-cuadrado">' + tipo + '</div><strong>' + oracion + '</strong></div>');
     var body = document.getElementById("documentoXML");
     body.innerHTML = texto;
 }
 
+//Con esta funcion se pretende resaltar en negrita el error seleccionado y soltar un bocadillo que indique su tipo
+
 //Se agrega el tipo de error
 function gestionDeTipo(tipo){
     tipoDeError.push(tipo);
-    disableButtons(); 
+    var oracion = oraciones.pop();
+    colorDeFondo(document.getElementById("documentoXML").innerHTML, oracion.toString() ,tipo);
+    oraciones.push(oracion.toString());
+    cerrarPopup3("TiposDeError");
+}
+
+function eliminarError(){
+    if(seleccionTabla != ''){
+        quitarColorDeFondo(oraciones[seleccionTabla], tipoDeError[seleccionTabla]);
+        tipoDeError.splice(seleccionTabla,1);
+        oraciones.splice(seleccionTabla,1);
+        posiciones.splice(seleccionTabla,1);
+        seleccionTabla = parseInt(seleccionTabla) + 1;
+        seleccionTabla = '';       
+    }
+    else{
+        alert("No has seleccionado ningún error");
+    }
+    document.getElementById("estasseguro2").style.display="none";
+}
+
+//Quita el color de fondo
+function quitarColorDeFondo(oracion, tipo){
+    document.getElementById("documentoXML").innerHTML =
+     document.getElementById("documentoXML").innerHTML.replace('<div><div class="bocadillo-cuadrado">' + tipo + '</div><strong>'
+      + oracion + '</strong></div>', oracion);
 }
 
 //Se crea y se muestra la tabla de errores
@@ -72,9 +99,11 @@ function tablaErrores(){
 
 function abrirPopup(window){
     document.getElementById(window).style.display="block";
-    document.getElementById("quitar_boton").style.display="block";
     if(window == "t_errores")
-            tablaErrores();
+    {
+        document.getElementById("t_errores").style.display="block";
+        document.getElementById("quitar_boton").style.display="block";
+    }
 }
 
 
@@ -88,38 +117,11 @@ function cerrarPopup(){
     }
 }
 
-//Quita el color de fondo
-function quitarColorDeFondo(posicion,oracion){
-    document.getElementById("documentoXML").innerHTML = document.getElementById("documentoXML").innerHTML.replace("<span id=\"" + posicion + "\" class=\"color-de-fondo\">" + oracion + "</span>",oracion);
-}
 //Eliminar funciones redundantes
-function cerrarPopup1(){
-    document.getElementById("estasseguro").style.display="none";
-}
-
-function cerrarPopup2(){
-    document.getElementById("estasseguro2").style.display="none";
-}
-
 function cerrarPopup3(window){
     document.getElementById(window).style.display="none";
 }
 
-
-function eliminarError(){
-    if(seleccionTabla != ''){
-        quitarColorDeFondo(posiciones[seleccionTabla],oraciones[seleccionTabla]);
-        tipoDeError.splice(seleccionTabla,1);
-        oraciones.splice(seleccionTabla,1);
-        posiciones.splice(seleccionTabla,1);
-        seleccionTabla = parseInt(seleccionTabla) + 1;
-        seleccionTabla = '';       
-    }
-    else{
-        alert("No has seleccionado ningún error");
-    }
-    document.getElementById("estasseguro2").style.display="none";
-}
 
 function sigPagina(){
     window.location = "compSoluciones.html";

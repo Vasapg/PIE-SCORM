@@ -16,10 +16,10 @@ grid-template-rows: 1fr, 1fr;
 .documentoXML{
     background: #fff;
     padding:  30px;
-    width: 80%;
-    height: 760px;
+    width: 87%;
+    height: 500px;
     margin: 10px auto;
-    margin-left: 10%;
+    margin-left: 5%;
     overflow: auto;
     float: left;
 }
@@ -27,30 +27,12 @@ grid-template-rows: 1fr, 1fr;
 .botones{
     position: relative;
     width: 300px;
-    height: 40px;
-    margin-top: 90%;
+    height: 50%;
+    margin-top: 75%;
 }
 
 .color-de-fondo{
     background-color: yellow;
-}
-
-.solucionXML1{
-    background: #fff;
-    padding: 40 px;
-    width: 420px;
-    height: 530px;
-    margin: 20px auto;
-    float: left;
-}
-
-.solucionXML2{
-    background: #fff;
-    padding: 40 px;
-    width: 420px;
-    height: 530px;
-    margin: 20px auto;    
-    float: right;
 }
 
 .global{
@@ -105,8 +87,8 @@ grid-template-rows: 1fr, 1fr;
 .errores{
     background: #fff;
     padding: 40 px;
-    margin: 20px auto;
-    margin-left: 30%;
+    margin: 3%;
+    margin-left: 28%;
     border: none;
 }
 

@@ -18,13 +18,6 @@
   <div class="botones">
     <table>
       <tr>
-        <td><input type="button" value="Select Error" onclick="abrirPopup('TiposDeError');" 
-          style='width: 250px; height:40px; text-align:center;'>
-        </td>
-        <td><input type="button" value="?" onclick="abrirPopup('helpBottom');" 
-          class="helpbtn"></td>
-      </tr>
-      <tr>
         <td><input type="button" class="ver" id="ver_errores" value="View Errors" onclick="abrirPopup('t_errores');" 
           style="width: 250px; height:40px; text-align:center;"></td>
       </tr>
@@ -101,7 +94,7 @@
   <br>
   <br>
   <input type="button" value="Yes" onclick="sigPagina();" class="siestoyseguro" style='width: 150px; height:40px'>
-  <input type="button" value="No" onclick="cerrarPopup1();" class="noestoyseguro" style='width: 150px; height:40px'>
+  <input type="button" value="No" onclick="cerrarPopup3('estasseguro');" class="noestoyseguro" style='width: 150px; height:40px'>
 </div>
 
 <div class="popup" id="t_errores">
@@ -119,6 +112,7 @@
       <input type="button" value="Delete this error" onclick="abrirPopup('estasseguro2');" class="delete_error" id="delete_error" style='width: 150px; height:40px'>
     </center>   
 </div>
+
 <!--help popup for user -->
 <div class="popup" id="helpBottom">
   <div class="cerrar" id="cerrar">
@@ -154,7 +148,7 @@
   <br>
   <br>
   <input type="button" value="Yes" onclick="eliminarError();" class="siestoyseguro" style='width: 150px; height:40px'>
-  <input type="button" value="No" onclick="cerrarPopup2();" class="noestoyseguro" style='width: 150px; height:40px'>
+  <input type="button" value="No" onclick="cerrarPopup3('estasseguro2');" class="noestoyseguro" style='width: 150px; height:40px'>
 </div>
 
 </body>
