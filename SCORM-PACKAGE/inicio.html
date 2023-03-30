@@ -17,19 +17,15 @@
                     <hr>
                     <h3>Instructions</h3>
                     <ol>
-                    	<li>In this exercices you will have to select with the cursor a phrase of the text which you consider wrong
-                            <br>
-                            <br>
-                            <img src="img/selectText.png" alt="Select text" class="bigimg">
-                            <br>
+                    	<li>
+                            <div>In this exercices you will have to select with the cursor a phrase of the text which you consider wrong</div>
+                            <div><img src="img/selectText.png" alt="Select text" class="bigimg"></div>
                             <br>
                         </li>
-                        <li>Once a portion of the text is select, the next step will be to select the
-                             type of error corresponding to the selected phrase
+                        <li>Once a portion of the text is select, you will be able to click on "select error", to relate that error to a type
                              <br>
                              <br>
                              <img src="img/SelectType.png" alt="Select type" class="bigimg">
-                             <br>
                              <br>
                             </li>
                         <li>Every time a error is selected, it will be add on an error table 
@@ -38,10 +34,11 @@
                             <br>
                             <img src="img/ErrorTable.png" alt="Select type" class="img">
                             <br>
-                            <br>
                         </li>
-                        <li>When you are done selecting the errors, you will be able to see the document you made by deleting the errors
+                        <li>When you are done selecting the errors, you will be able to see the document you made by selecting the errors
                             along side the answer.
+                            <br>
+                            <br>
                         </li>
                         <li>At any point of the exercise you may see more help by clicking in the "?" button</li>
                     </ol>
@@ -49,7 +46,7 @@
                 </center>
             </div>
             <center>
-                <input type="button" id="startExe" class="startExe" value="Start Excersise" onclick="location='documento.html'" style='width: 200px; height:40px'/>
+                <input type="button" id="startExe" class="startExe" value="Start Excersise" onclick="location='documento.html'" style='width: 200px; height:40px; margin-bottom: 100 px;'/>
             </center>            
         </div>
     </body>
@@ -86,6 +83,7 @@
         }
         localStorage.setItem("numDocs",array.length);
         localStorage.setItem("array_de_documentos", JSON.stringify(array));
+        console.log(array); 
     }
 
     var titulos = [];

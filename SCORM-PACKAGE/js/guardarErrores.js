@@ -1,23 +1,25 @@
 var tipoDeError = [];
 var oraciones = [];
 var posiciones = [];
+var texto_error = [];
 
 //Con esta función 
+
 document.getElementById("documentoXML").addEventListener("mouseup",function(){
     var oracion = window.getSelection();
     if(oracion != ""){
         var offset = oracion.anchorOffset;
         var text = oracion.anchorNode.data;
         var textOffset = document.getElementById("documentoXML").innerHTML.indexOf(text);
-        oraciones.push(oracion.toString());
+        texto_error.push(oracion.toString());
         posiciones.push(textOffset + offset);
         enableButtons();
-        abrirPopup('TiposDeError');
     }  
 });
 
 //Con esta función realtamos el texto seleccionado de amarillo
-function colorDeFondo(texto, oracion, tipo){           
+function colorDeFondo(texto, oracion, tipo){
+    //texto = texto.slice(0,posicionDeOracion) + "<span id = " + posicionDeOracion + " class='color-de-fondo'>" + oracion + "</span>" + texto.slice(posicionDeOracion + oracion.length,texto.length);       
     texto = texto.replace(oracion, '<div><div class="bocadillo-cuadrado">' + tipo + '</div><strong>' + oracion + '</strong></div>');
     var body = document.getElementById("documentoXML");
     body.innerHTML = texto;
@@ -28,9 +30,12 @@ function colorDeFondo(texto, oracion, tipo){
 //Se agrega el tipo de error
 function gestionDeTipo(tipo){
     tipoDeError.push(tipo);
+    var oracion = texto_error.pop();
+    oraciones.push(oracion);
     var oracion = oraciones.pop();
     colorDeFondo(document.getElementById("documentoXML").innerHTML, oracion.toString() ,tipo);
     oraciones.push(oracion.toString());
+    disableButtons();
     cerrarPopup3("TiposDeError");
 }
 
@@ -97,13 +102,15 @@ function tablaErrores(){
     });
 }
 
-function abrirPopup(window){
-    document.getElementById(window).style.display="block";
-    if(window == "t_errores")
+function abrirPopup(modal){
+    document.getElementById(modal).style.display="block";
+    if(modal == "t_errores")
     {
         document.getElementById("t_errores").style.display="block";
         document.getElementById("quitar_boton").style.display="block";
     }
+    if(modal == "estasseguro2")
+        cerrarPopup();
 }
 
 
@@ -153,4 +160,12 @@ function disableButtons()
     document.getElementById("Traceability").disabled = true;
     document.getElementById("Testability").disabled = true;
     document.getElementById("Realism").disabled = true;
+}
+
+function textToHTML(texto) {
+	return texto.replace(/[\n]/gi, "<br>");
+}
+
+function HTMLtoText(texto) {
+	return texto.replace( "<br>", /[\n]/gi);
 }

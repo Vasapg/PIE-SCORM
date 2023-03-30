@@ -13,6 +13,11 @@ display: grid;
 grid-template-rows: 1fr, 1fr;
 }
 
+.wrapperInstructions{
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+}
+
 .documentoXML{
     background: #fff;
     padding:  30px;
