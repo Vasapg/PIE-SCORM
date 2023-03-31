@@ -2,6 +2,7 @@ var tipoDeError = [];
 var oraciones = [];
 var posiciones = [];
 var texto_error = [];
+var texto_original = document.getElementById("documentoXML").innerHTML;
 
 //Con esta función 
 
@@ -14,13 +15,12 @@ document.getElementById("documentoXML").addEventListener("mouseup",function(){
         texto_error.push(oracion.toString());
         posiciones.push(textOffset + offset);
         enableButtons();
-    }  
+    }
 });
 
 //Con esta función realtamos el texto seleccionado de amarillo
 function colorDeFondo(texto, oracion, tipo){
-    //texto = texto.slice(0,posicionDeOracion) + "<span id = " + posicionDeOracion + " class='color-de-fondo'>" + oracion + "</span>" + texto.slice(posicionDeOracion + oracion.length,texto.length);       
-    texto = texto.replace(oracion, '<div><div class="bocadillo-cuadrado">' + tipo + '</div><strong>' + oracion + '</strong></div>');
+    texto = texto.replace(oracion, '<div class="unselectable"><div class="bocadillo-cuadrado">' + "" + tipo + "" + '</div><strong>' + oracion + '</strong></div>');
     var body = document.getElementById("documentoXML");
     body.innerHTML = texto;
 }
@@ -29,8 +29,14 @@ function colorDeFondo(texto, oracion, tipo){
 
 //Se agrega el tipo de error
 function gestionDeTipo(tipo){
+    var oracion = texto_error.pop().toString();
+    if(oracion.includes("\n"))
+        {
+            alert("Los errores no se pueden seleccionar entre párrafos");
+            disableButtons();
+            return;
+        }
     tipoDeError.push(tipo);
-    var oracion = texto_error.pop();
     oraciones.push(oracion);
     var oracion = oraciones.pop();
     colorDeFondo(document.getElementById("documentoXML").innerHTML, oracion.toString() ,tipo);
@@ -54,10 +60,18 @@ function eliminarError(){
     document.getElementById("estasseguro2").style.display="none";
 }
 
+function reiniciarDocumento()
+{
+    document.getElementById("documentoXML").innerHTML = texto_original;
+    tipoDeError = [];
+    oraciones = [];
+    cerrarPopup3("estasseguro3");
+}
+
 //Quita el color de fondo
 function quitarColorDeFondo(oracion, tipo){
     document.getElementById("documentoXML").innerHTML =
-     document.getElementById("documentoXML").innerHTML.replace('<div><div class="bocadillo-cuadrado">' + tipo + '</div><strong>'
+     document.getElementById("documentoXML").innerHTML.replace('<div class="unselectable"><div class="bocadillo-cuadrado">' + tipo + '</div><strong>'
       + oracion + '</strong></div>', oracion);
 }
 
@@ -104,10 +118,9 @@ function tablaErrores(){
 
 function abrirPopup(modal){
     document.getElementById(modal).style.display="block";
-    if(modal == "t_errores")
+    if(modal.toString() == "t_errores")
     {
-        document.getElementById("t_errores").style.display="block";
-        document.getElementById("quitar_boton").style.display="block";
+        tablaErrores();
     }
     if(modal == "estasseguro2")
         cerrarPopup();
@@ -160,12 +173,4 @@ function disableButtons()
     document.getElementById("Traceability").disabled = true;
     document.getElementById("Testability").disabled = true;
     document.getElementById("Realism").disabled = true;
-}
-
-function textToHTML(texto) {
-	return texto.replace(/[\n]/gi, "<br>");
-}
-
-function HTMLtoText(texto) {
-	return texto.replace( "<br>", /[\n]/gi);
 }

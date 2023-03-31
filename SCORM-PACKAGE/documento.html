@@ -20,6 +20,9 @@
       <tr>
         <td><input type="button" class="ver" id="Select Error" value="Select error" onclick="abrirPopup('TiposDeError');" 
           style="width: 250px; height:40px; text-align:center;"></td>
+          <td>
+            <input type="button" class="helpbtn" value="?" onclick="abrirPopup('helpBottom');"></td>
+          </td>
       </tr>
       <tr>
         <td><input type="button" class="ver" id="ver_errores" value="View Errors" onclick="abrirPopup('t_errores');" 
@@ -29,6 +32,12 @@
         <td><input type="button" value="End review and see solution" onclick="abrirPopup('estasseguro');" 
           style='width: 250px; height:40px; text-align:center;'></td>
       </tr>
+      <!--
+      <tr>
+        <td><input type="button" value="Reset document and errors" onclick="abrirPopup('estasseguro3');" 
+          style='width: 250px; height:40px; text-align:center;'></td>
+      </tr>
+      -->
     </table>
   </div>
 </div>
@@ -92,7 +101,7 @@
 
 <div class="popup" id="estasseguro">
   <center>
-    <big>Are you sure? This review will be marked as <b>&ldquo;complete&rdquo;</b> and you will <b>not be able</b>b> to retake it</big>
+    <big>Are you sure? This review will be marked as <b>&ldquo;complete&rdquo;</b> and you will <b>not be able</b> to retake it</big>
   </center>
   <br>
   <br>
@@ -110,8 +119,14 @@
         </svg>
     </div>
     <center>
+      <div class="display_table_error", id="quitar_boton">
+      </div>
+    </center>
+    <!--
+    <center>
       <input type="button" value="Display Error Table" onclick="tablaErrores();" class="display_table_error" id="quitar_boton">
     </center>
+    -->
     <center>
       <input type="button" value="Delete this error" onclick="abrirPopup('estasseguro2');" class="delete_error" id="delete_error" style='width: 150px; height:40px'>
     </center>   
@@ -127,8 +142,12 @@
       <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
     </svg>
 </div>
+<div style="margin-top:5%;">
+  <li>Select errors: here you may relate the selected text with an error, remember not to select errors between paragraphs</li>
   <li>View errors: here you can see all the errors you have selected and delete those ones you would like to delete</li>
-  <li>End review and see solution: once you have finished, click this option to display your solution along the corrected document</li>
+  <li>End review and see solution: once you have finished, click this option to display your solution along side the corrected document</li>
+  <li>Erros can not be along two differents paragraphs</li>
+</div>
 </div>
 
 <div class="popup" id="helpTopRight">
@@ -154,6 +173,18 @@
   <input type="button" value="Yes" onclick="eliminarError();" class="siestoyseguro" style='width: 150px; height:40px'>
   <input type="button" value="No" onclick="cerrarPopup3('estasseguro2');" class="noestoyseguro" style='width: 150px; height:40px'>
 </div>
+
+<div class="popup" id="estasseguro3">
+  <center>
+    <big>Are you sure you want to restart the document? this will delete all errors selected</big>
+  </center>
+  <br>
+  <br>
+  <br>
+  <input type="button" value="Yes" onclick="reiniciarDocumento()" class="siestoyseguro" style='width: 150px; height:40px'>
+  <input type="button" value="No" onclick="cerrarPopup3('estasseguro3');" class="noestoyseguro" style='width: 150px; height:40px'>
+</div>
+
 
 </body>
 <script type="text/javascript" src="js/guardarErrores.js"></script>
