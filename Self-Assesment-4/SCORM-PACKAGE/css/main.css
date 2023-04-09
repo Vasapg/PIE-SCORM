@@ -40,7 +40,7 @@ grid-template-rows: 1fr, 1fr;
     background: #fff;
     padding:  10px;
     width: 87%;
-    height: 540px;
+    height: 525px;
     margin: 10px auto;
     margin-left: 2%;
     overflow: auto;
@@ -54,8 +54,11 @@ grid-template-rows: 1fr, 1fr;
     margin-top: 50%;
 }
 
-.color-de-fondo{
-    background-color: yellow;
+.botonesError{
+    position: relative;
+    width: 200px;
+    height: 50%;
+    margin-top: 50%;
 }
 
 .global{
@@ -106,7 +109,7 @@ grid-template-rows: 1fr, 1fr;
     background: #fff;
     padding: 40 px;
     margin: 3%;
-    margin-left: 28%;
+    margin-left: 11%;
     border: none;
 }
 
@@ -128,6 +131,24 @@ grid-template-rows: 1fr, 1fr;
     width: 50%;
 }
 
+.popupError{
+    background: white;
+    height: 200px;
+    color: black;
+    text-align: center;
+    padding: 15px;
+    min-height: 225px;
+    border-style: solid;
+    border-color: black;
+    position: fixed;
+    display: none;
+    overflow: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+}
+
 #cerrar{
     position: absolute;
     right: 3px;
@@ -139,6 +160,26 @@ grid-template-rows: 1fr, 1fr;
 }
 
 .bocadillo-cuadrado {
+    position: relative;
+    height: 30px;
+    width: 160px;
+    text-align: center;
+    background: white;
+    box-shadow: 1px 12px 33px rgba(0, 0, 0, 0.5);
+}
+
+.bocadillo-cuadrado-good {
+    color: green;
+    position: relative;
+    height: 30px;
+    width: 160px;
+    text-align: center;
+    background: white;
+    box-shadow: 1px 12px 33px rgba(0, 0, 0, 0.5);
+}
+
+.bocadillo-cuadrado-wrong {
+    color: red;
     position: relative;
     height: 30px;
     width: 160px;

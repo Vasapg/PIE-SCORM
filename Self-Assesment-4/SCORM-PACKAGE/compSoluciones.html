@@ -13,10 +13,10 @@
     <body>
         <div class="wrapperComp">
             <div style="text-align: center;">
-                Your document:
+                <h2><u>Your document:</u></h2>
             </div>
             <div style="text-align: center;">
-                Solution:
+                <h2><u>Solution:</u></h2>
             </div>
             <div id="solucionAlumno" class="documentoXMLComp"></div>
             <div id="solucionCorrecta" class="documentoXMLComp"></div> 
@@ -45,11 +45,17 @@
     window.onload = verSolucionXML(titulo,texto,texto_errores,tipos_errores,id1);
 
     var id2 = "solucionAlumno";
-    var tipoDeError = localStorage.getItem("tipoDeError");
-    tipoDeError = JSON.parse(tipoDeError);
-    var oraciones = localStorage.getItem("oraciones");
-    oraciones = JSON.parse(oraciones);
-    window.onload = verSolucionXML(titulo,texto,oraciones,tipoDeError,id2);
+    
+    var text_originales = localStorage.getItem("texto_errores");
+    text_originales = JSON.parse(text_originales);
+    var tipos_originales = localStorage.getItem("tipos_errores");
+    tipos_originales = JSON.parse(tipos_originales);
+    var text_alumno = localStorage.getItem("oraciones");
+    text_alumno = JSON.parse(text_alumno);
+    var tipos_alumno = localStorage.getItem("tipoDeError");
+    tipos_alumno = JSON.parse(tipos_alumno);
+
+    window.onload = verSolucionAlumno(titulo, texto, text_originales, tipos_originales, text_alumno, tipos_alumno, id2);
     
     </script>
 </html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <text>
+    xxxxx entidad1 xxxxxx proceso1 xxxxxx flujo1 xxxxxx entidad2 xxxxxx proceso2 xxxxxx almacen1 xxxxxx proceso3 xxxxxx entidad3.
+    </text>
+    <atribute type="proceso" weight="1">proceso1</atribute>
+    <atribute type="proceso" weight="1">proceso2</atribute>
+    <atribute type="proceso" weight="1">proceso3</atribute>
+    <atribute type="entidad" weight="1">entidad1</atribute>
+    <atribute type="entidad" weight="1">entidad2</atribute>
+    <atribute type="entidad" weight="1">entidad3</atribute>
+    <atribute type="flujo" weight="1">flujo1</atribute>
+    <atribute type="almacen" weight="1">almacen1</atribute>
+</document>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang ="es">
+    <head>
+        <title>atributosTexto</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> 
+    </head>
+    <body>
+        <div style="text-align:center;">
+        <table style="margin: 0 auto;">
+            <tr>
+              <th>Atributo</th>
+              <th>Aciertos</th>
+              <th>Total</th>
+              <th>Peso en la nota</th>
+            </tr>
+            <tr>
+              <td>Procesos</td>
+              <td>
+                <div id="procesos_sel">
+
+                </div>
+              </td>
+              <td>
+                <div id="procesos_sol">
+
+                </div>
+              </td>
+              <td>1/10</td>
+            </tr>
+            <tr>
+              <td>Entidades</td>
+               <td>
+                <div id="entidades_sel">
+
+                </div>
+              </td>
+              <td>
+                <div id="entidades_sol">
+                    
+                </div>
+              </td>
+              <td>1/10</td>
+            </tr>
+            <tr>
+                <td>Flujos</td>
+                <td>
+                    <div id="flujos_sel">
+    
+                    </div>
+                  </td>
+                  <td>
+                    <div id="flujos_sol">
+                        
+                    </div>
+                  </td>
+                  <td>1/10</td>
+              </tr>
+              <tr>
+                <td>Almacenes</td>
+                <td>
+                    <div id="almacenes_sel">
+    
+                    </div>
+                  </td>
+                  <td>
+                    <div id="almacenes_sol">
+                        
+                    </div>
+                  </td>
+                  <td>1/10</td>
+              </tr>
+              <tr>
+                <td>Relaciones</td>
+                <td>
+                    <div id="relaciones_sel">
+    
+                    </div>
+                  </td>
+                  <td>
+                    <div id="relaciones_sol">
+                        
+                    </div>
+                  </td>
+                  <td>5/10</td>
+              </tr>
+              <tr>
+                <td>Resultado</td>
+                <td>
+                    <div id="solucion_sel">
+    
+                    </div>
+                  </td>
+                  <td>
+                    <div id="solucion_sol">
+                        
+                    </div>
+                  </td>
+              </tr>
+          </table>
+        <div>
+            <input type="button" id="sol" class="sol" value="Solución del modelo" onclick="location = 'compSoluciones.html'" style='width: 375px; height:40px;'>
+          </div>
+          <div>
+            <input type="button" id="volver" class="volver" value="Reintentar ejercicio" onclick="location = 'atributosTexto.html'" style='width: 375px; height:40px;'>
+          </div> 
+        </div>
+    </body>
+    <script type="text/javascript" src="js/calificaciones.js"></script>
+</html>

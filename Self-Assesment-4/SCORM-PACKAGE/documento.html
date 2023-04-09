@@ -15,7 +15,7 @@
 <!--Document that is presented to the user TODO: Put it left in the page, rith errors-->
   <div id="documentoXML" class="documentoXML"></div>
 <!--This div will help me to organiza all buttons at the rigth side of the page-->
-  <div class="botones">
+  <div class="botonesError">
     <table>
       <tr>
         <td><input type="button" class="ver" id="Select Error" value="Select error" onclick="abrirPopup('TiposDeError');" 
@@ -25,7 +25,7 @@
           </td>
       </tr>
       <tr>
-        <td><input type="button" class="ver" id="ver_errores" value="View Errors" onclick="abrirPopup('t_errores');" 
+        <td><input type="button" class="ver" id="ver_errores" value="Manage Errors" onclick="abrirPopup('t_errores');" 
           style="width: 250px; height:40px; text-align:center;"></td>
       </tr>
       <tr>
@@ -42,7 +42,7 @@
   </div>
 </div>
 
-<div class="popup" id="TiposDeError">
+<div class="popupError" id="TiposDeError">
   <div class="errores">
     <div class="cerrar" id="cerrar">
       <svg onclick="cerrarPopup3('TiposDeError');" class="bi bi-x-circle" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

@@ -5,7 +5,8 @@ function calcularNota(text_originales,tipos_originales,pesos_originales,text_alu
     for(var i = 0; i<text_originales.length; i++){
         for(var j = 0; j<text_alumno.length; j++){
             if(text_alumno[j].split(" ").length - text_originales[i].split(" ").length < 8){
-                if(compTextos(text_originales[i].split(" "),text_alumno[j].split(" ")) >= calcOchenta(text_originales[i].split(" ")) && tipos_originales[i] == tipos_alumno[j]){
+                if(compTextos(text_originales[i].split(" "),text_alumno[j].split(" ")) >= calcOchenta(text_originales[i].split(" ")) 
+                && tipos_originales[i] == tipos_alumno[j]){
                     notaAlumno += pesos_originales[i];
                 }
             }            
@@ -44,7 +45,7 @@ function calcularNota(text_originales,tipos_originales,pesos_originales,text_alu
 
     var nota_e = document.createElement("th");
     nota_e.setAttribute("class","tg-4erg");  
-    var nota_e1 = document.createTextNode("Mark");
+    var nota_e1 = document.createTextNode("grade");
     nota_e.appendChild(nota_e1);
 
     fila1.appendChild(titulo);

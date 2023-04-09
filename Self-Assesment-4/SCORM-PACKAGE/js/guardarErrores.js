@@ -32,7 +32,7 @@ function gestionDeTipo(tipo){
     var oracion = texto_error.pop().toString();
     if(oracion.includes("\n"))
         {
-            alert("Los errores no se pueden seleccionar entre párrafos");
+            alert("errors can not be selected between two paragraphs");
             disableButtons();
             return;
         }

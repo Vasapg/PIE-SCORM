@@ -64,7 +64,7 @@
         var tabla = document.getElementById("tabla");
         var fila = document.createElement("tr");
         var notaFinal = document.createElement("th");
-        var notaFinal2 = document.createTextNode("Final mark");
+        var notaFinal2 = document.createTextNode("Final grade");
         notaFinal.appendChild(notaFinal2); 
         var nota = document.createElement("th");
         var nota2 = document.createTextNode(suma(stringToInt(JSON.parse(localStorage.getItem("notasAlumno"))))  + "/" + suma(stringToInt(JSON.parse(localStorage.getItem("notasDocumentos")))));
@@ -82,7 +82,7 @@
         var body = document.getElementById("otro_documento");
         var boton = document.createElement("INPUT");
         boton.setAttribute("type","button");
-        boton.setAttribute("value","Next document");
+        boton.setAttribute("value","Next exercise");
         boton.setAttribute("onclick","location='documento.html'");
         boton.setAttribute("style","width: 850px; height:40px");
         body.appendChild(boton);
