@@ -9,16 +9,21 @@
         <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> 
     </head>
     <body>
-        <div class ="ah" id="ah">
-            <header class="tituloR">Modelo solución</header>
-        <div class="mermaid" id="mermaid2" style='width: 400px; height:300px; margin:225px'>
-
-        </div>
-        </div>
-        <input type="button" id="volver2" class="volver2" value="Calificaciones" onclick="location = 'calificaciones.html'" style='width: 750px; height:40px; margin:8px'>
+        <div style="margin-left: 25%; margin-right: 25%;">
+            <div class ="ah" id="ah">
+                <header class="tituloR">Conceptual Model</header>
+            <div class="mermaid" id="mermaid"></div>
+            </div>
+            <div id="next_pagina">
+                <input type="button" id="relacionar" class="relacionar" value="next page" onclick="location = 'relacionarAtributos.html'" 
+                style='width: 375px; height:40px; margin:8px; margin-left: 10%;'>
+                <input type="button" id="relacionar" class="relacionar" value="finish exercise" onclick="location = 'calificaciones.html'" 
+                style='width: 375px; height:40px; margin:5px'>
+            </div>
+        </div>    
         <script>
             mermaid.initialize({ startOnLoad: true });
         </script>
     </body>
-    <script type="text/javascript" src="js/compSol.js"></script>
+    <script type="text/javascript" src="js/modelo.js"></script>
 </html>

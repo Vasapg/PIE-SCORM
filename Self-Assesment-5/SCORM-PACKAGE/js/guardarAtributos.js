@@ -124,9 +124,9 @@ function devolverBotones(obj,body,arr){
 }
 
 function save(){
-    window.location = "relacionarAtributos.html";
     localStorage.setItem("procesos_sel", JSON.stringify(procesos_sel));
     localStorage.setItem("entidades_sel", JSON.stringify(entidades_sel));
     localStorage.setItem("flujos_sel", JSON.stringify(flujos_sel));
     localStorage.setItem("almacenes_sel", JSON.stringify(almacenes_sel));
+    window.location = "relacionarAtributos.html";
 }

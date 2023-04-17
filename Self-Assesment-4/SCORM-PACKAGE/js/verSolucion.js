@@ -13,30 +13,25 @@ function verSolucionAlumno(titulo, texto, text_originales, tipos_originales, tex
 {
     var body = document.getElementById(id);  
     texto = quitarEspacios(texto);  
-    for(var i = 0; i<text_originales.length; i++){
-        for(var j = 0; j<text_alumno.length; j++){
-            if(text_alumno[j].split(" ").length - text_originales[i].split(" ").length < 8){
-                if(compTextos(text_originales[i].split(" "),text_alumno[j].split(" ")) >= calcOchenta(text_originales[i].split(" ")) 
-                && tipos_originales[i] == tipos_alumno[j]){
-                    texto_errores[i] = quitarEspacios(texto_errores[i]);
-                    texto = texto.replace(texto_errores[i],'<div><div class="bocadillo-cuadrado-good">' + tipos_alumno[i] 
-                    + '</div><strong>' + texto_errores[i] + '</strong></div>');
+    for(var i = 0; i<text_alumno.length; i++){
+        for(var j = 0; j<text_originales.length; j++){
+            if(text_alumno[i].split(" ").length - text_originales[j].split(" ").length < 8){
+                if(compTextos(text_originales[j].split(" "),text_alumno[i].split(" ")) >= calcOchenta(text_originales[j].split(" ")) 
+                && tipos_originales[j] == tipos_alumno[i]){
+                    text_alumno[i] = quitarEspacios(text_alumno[i]);
+                    texto = texto.replace(text_alumno[i],'<div><div class="bocadillo-cuadrado-good">' + tipos_alumno[i] 
+                    + '</div><strong>' + text_alumno[i] + '</strong></div>');
                     break;
                 }
-                else if (j == text_alumno.length - 1)
+                else if(j == text_originales.length - 1)
                 {
-                    texto_errores[i] = quitarEspacios(texto_errores[i]);
-                    texto = texto.replace(texto_errores[i],'<div><div class="bocadillo-cuadrado-wrong">' + tipos_alumno[i] 
-                    + '</div><strong>' + texto_errores[i] + '</strong></div>');
+                    text_alumno[i] = quitarEspacios(text_alumno[i]);
+                    texto = texto.replace(text_alumno[i],'<div><div class="bocadillo-cuadrado-wrong">' + tipos_alumno[i] 
+                    + '</div><strong>' + text_alumno[i] + '</strong></div>');
                 }
             }            
         }
     }
-    /*for(var i = 0; i<texto_errores.length; i++){
-        texto_errores[i] = quitarEspacios(texto_errores[i]);
-        texto = texto.replace(texto_errores[i],'<div><div class="bocadillo-cuadrado">' + tipos_errores[i] 
-        + '</div><strong>' + texto_errores[i] + '</strong></div>');
-    }   */ 
     body.innerHTML = '<h3>' + titulo + '</h3>' + '<hr>' + texto;
 }
 

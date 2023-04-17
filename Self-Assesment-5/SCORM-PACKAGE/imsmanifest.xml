@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<!-- 
+Manifest template to demonstrate the proper XML namespace declarations for
+SCORM 1.2 manifests. 
+
+Provided by Rustici Software - www.scorm.com.
+-->
+<manifest identifier="com.scorm.manifesttemplates.scorm12" version="1"
+       xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+       xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                           http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
+                           http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+	<metadata>
+		<schema>ADL SCORM</schema>
+		<schemaversion>1.2</schemaversion>
+	</metadata>
+	<organizations default="B0" isvisible="false">
+		<organization identifier="B0" isvisible="false">
+			<title isvisible="false">Aplicacion</title> 
+			<item identifier="i1" identifierref="r1" isvisible="false">
+				<title>Texto</title> 
+			</item>
+			<item identifier="i2" identifierref="r2" isvisible="false">
+				<title>relacionar</title> 
+			</item>
+			<item identifier="i3" identifierref="r3" isvisible="false">
+				<title>modeloProvisional</title> 
+			</item>
+			<item identifier="i4" identifierref="r4" isvisible="false">
+				<title>calificaciones</title> 
+			</item>false
+			<item identifier="i5" identifierref="r5" isvisible="false">
+				<title>compSoluciones</title> 
+			</item>
+		</organization>
+	</organizations>
+	<resources>
+		<resource identifier="r1" type="webcontent" adlcp:scormtype="sco" href="atributosTexto.html">
+			<file href="atributosTexto.html" />
+			<file href="css/main.css" />
+			<file href="js/documento.js"/>
+			<file href="js/guardarAtributos.js"/>
+		</resource>
+		<resource identifier="r2" type="webcontent" adlcp:scormtype="sco" href="relacionarAtributos.html">
+			<file href="relacionarAtributos.html" />
+			<file href="css/main.css" />
+			<file href="js/relacionar.js"/>
+		</resource>
+		<resource identifier="r3" type="webcontent" adlcp:scormtype="sco" href="modeloProvisional.html">
+			<file href="modeloProvisional.html" />
+			<file href="css/main.css" />
+			<file href="js/modelo.js"/>
+		</resource>
+		<resource identifier="r4" type="webcontent" adlcp:scormtype="sco" href="calificaciones.html">
+			<file href="calificaciones.html" />
+			<file href="css/main.css" />
+			<file href="js/calificaciones.js"/>
+		</resource>
+		<resource identifier="r5" type="webcontent" adlcp:scormtype="sco" href="compSoluciones.html">
+			<file href="compSoluciones.html" />
+			<file href="css/main.css" />
+			<file href="js/compSol.js"/>
+		</resource>		
+	</resources>
+</manifest>
