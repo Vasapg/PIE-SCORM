@@ -1,5 +1,5 @@
-function getDocumento(){
-    fetch("https://raw.githubusercontent.com/Vasapg/PIE-SCORM/main/Self-Assesment-5/ejercicios/ex1.xml")
+function getDocumento(URL){
+    fetch(URL)
     .then(response => response.text())
     .then(data => {
         var infoxml = new DOMParser().parseFromString(data, "text/xml");
@@ -48,11 +48,29 @@ function getDocumento(){
 
 function getConfig()
 {
-    fetch("https://raw.githubusercontent.com/Vasapg/PIE-SCORM/main/Self-Assesment-5/ejercicios/ex1.xml")
+    fetch("https://raw.githubusercontent.com/Vasapg/PIE-SCORM/main/Self-Assesment-5/ejercicios/config.txt")
     .then(response => response.text())
-    .then(data => {
+    .then(text => {
         
+        localStorage.setItem("config", text.split('\n'));
+        localStorage.setItem("nEjercicio", 0);
+        console.log(text);
+    })
+}
+
+function getUrl()
+{
+    if(!localStorage.getItem("config"))
+    {
+        getConfig();
     }
+    var text = localStorage.getItem("config");
+    var nEjercicio = parseInt(localStorage.getItem("nEjercicio"));
+    console.log(nEjercicio);
+    console.log(text);
+    getDocumento(text[nEjercicio + 1]);
+    nEjercicio = nEjercicio + 2;
+    localStorage.setItem("nEjercicio", nEjercicio);
 }
 
 
@@ -72,4 +90,4 @@ function formatearTexto(texto){
     return texto.replace(/[\n]/gi,"<br>");
 }
 
-window.onload = getDocumento();
+window.onload = getUrl();

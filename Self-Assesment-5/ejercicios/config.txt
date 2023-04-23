@@ -1,2 +1,2 @@
 Ejercicio1
-https://github.com/Vasapg/PIE-SCORM/blob/main/Self-Assesment-5/ejercicios/ex1.xml
+https://raw.githubusercontent.com/Vasapg/PIE-SCORM/main/Self-Assesment-5/ejercicios/ex1.xml
