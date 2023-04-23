@@ -64,7 +64,6 @@ document.getElementById("relaciones_sol").innerHTML=arrR_sol.length;
 document.getElementById("solucion_sel").innerHTML= solucion_sel + " (" + solucion + ")";
 document.getElementById("solucion_sol").innerHTML= solucion_sol + " (" + 10 + ")";
 
-
 function getCalificacion(arr1,arr2,tipo){
     for(var i=0; i<arr1.length; i++){
         for(var j=0; j<arr2.length;j++){
@@ -104,3 +103,49 @@ function overSol(arr1,arr2,contador){
         relaciones = relaciones - (arr1.length - arr2.length)*0.25; 
     }    
 }
+
+var API = null;
+
+function FindAPI(win) {
+    while ((win.API == null) && (win.parent != null) && (win.parent != win)) {
+        nFindAPITries ++;
+        if (nFindAPITries > 500) {
+            alert("Error in finding API -- too deeply nested.");
+            return null 
+        }
+        win = win.parent
+    }
+    return win.API
+} 
+
+function init() {
+    if ((window.parent) && (window.parent != window)){
+        API = FindAPI(window.parent);
+    } 
+    if ((API == null) && (window.opener != null)){
+        API = FindAPI(window.opener); 
+    } 
+    if (API == null) { 
+        alert("No API adapter found"); 
+    } 
+    else { 
+        API.LMSInitialize(""); 
+    } 
+}
+
+function finish() {
+    localStorage.clear(); 
+    if (API != null) { 
+        API.LMSSetValue("cmi.core.lesson_status","completed");
+        API.LMSSetValue("cmi.core.score.max",);
+        API.LMSSetValue("cmi.core.score.min",0);
+        API.LMSSetValue("cmi.core.score.raw", solucion_sel);
+        API.LMSFinish(""); 
+    } 
+}
+
+function finalizarActividad(){
+    init();
+    finish();
+    parent.window.location = "https://moodle.upm.es/titulaciones/oficiales/mod/scorm/view.php?id=552608";
+}   

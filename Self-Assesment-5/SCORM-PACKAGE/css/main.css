@@ -3,15 +3,26 @@
     justify-content: center;
 }
 
+.wrapperRelations{
+    display: flex;
+    justify-content: center;
+}
+
 .documentoXML{
     background: #fff;
     padding: 40 px;
     width: 500px;
     height: 450px;
     margin: 20px auto;
-    text-align: center;
+    text-align: justify;
     overflow: auto;
     float: left;
+}
+
+.mermaid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .columna-botones{
@@ -73,9 +84,16 @@ table, th, td {
     float: left;
 }
 
+.wrappButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .ah{
     background: #d8d2d2;
-    width: 1000px;
+    width: 600px;
     height: 500px;
     border-style: solid;
     overflow:scroll;
@@ -83,3 +101,5 @@ table, th, td {
     margin-right: 25%;
     grid-column: 1fr;
 }
+
+#page-mod-scorm-player .btn-secondary {display:none;}

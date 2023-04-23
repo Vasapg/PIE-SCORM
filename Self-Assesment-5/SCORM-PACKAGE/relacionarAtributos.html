@@ -9,46 +9,39 @@
         <script type="text/javascript" src=""></script>
     </head>
     <body>
-    <article class = "izq">
-        <div class = "celda">
-                <header class="titulo">Process</header>
-                <div id="botones_p" class="botones_p">
-
-                </div>
-        </div>
-        <div class = "celda">
-            <header class="titulo">Entities</header>
-            <div id="botones_e" class="botones_e">
-
+    <div class = "wrapperRelations">
+        <div class = "columna-botones">
+            <div class = "celda">
+                    <header class="titulo">Process</header>
+                    <div id="botones_p" class="botones_p"></div></div>
+            <div class = "celda">
+                <header class="titulo">Entities</header>
+                <div id="botones_e" class="botones_e"></div>
+            </div>
+            <div class = "celda">
+                <header class="titulo">Flows</header>
+                <div id="botones_f" class="botones_f"></div>
+            </div>
+            <div class = "celda">
+                <header class="titulo">Depots</header>
+                <div id="botones_a" class="botones_a"></div>
+            </div>
+            <div id="prev_pagina">
+                <input type="button" id="relacionar" class="relacionar" value="previews page" onclick= "boton('anterior');" style='width: 350px; height:40px; margin:5px;' >
             </div>
         </div>
-        <div class = "celda">
-            <header class="titulo">Flows</header>
-            <div id="botones_f" class="botones_f">
-
+        <div style="margin-left: 20%;">
+        <center>
+            <div class = "relaciones">
+                <header class="tituloR">Relations</header>
+                <div id="botones_r" class="botones_r"></div>
             </div>
-        </div>
-        <div class = "celda">
-            <header class="titulo">Depots</header>
-            <div id="botones_a" class="botones_a">
-
+            <div id="next_pagina">
+                <input type="button" id="relacionar" class="relacionar" value="next page" onclick= "boton('siguiente');" style='width: 325px; height:40px;' >
             </div>
-        </div>
-        <div id="prev_pagina">
-            <input type="button" id="relacionar" class="relacionar" value="previews page" onclick= "boton('anterior');" style='width: 350px; height:40px; margin:5px;' >
-        </div>
-    </article>
-    <center>
-    <div class = "relaciones">
-        <header class="tituloR">Relations</header>
-        <div id="botones_r" class="botones_r">
-
-        </div>
-    </div>
-    <div id="next_pagina">
-        <input type="button" id="relacionar" class="relacionar" value="next page" onclick= "boton('siguiente');" style='width: 325px; height:40px;' >
-    </div>
-    </center>    
+        </center>
+        </div>     
+    </div>        
     </body>
     <script type="text/javascript" src="js/relacionar.js"></script>
 </html>

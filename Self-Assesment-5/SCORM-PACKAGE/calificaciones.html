@@ -9,7 +9,7 @@
         <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> 
     </head>
     <body>
-        <div style="text-align:center;">
+        <div style="text-align:center; margin-top: 5%;">
         <table style="margin: 0 auto;">
             <tr>
               <th>Atributte</th>
@@ -102,10 +102,13 @@
               </tr>
           </table>
         <div>
-            <input type="button" id="sol" class="sol" value="Solución del modelo" onclick="location = 'compSoluciones.html'" style='width: 375px; height:40px;'>
+            <input type="button" id="sol" class="sol" value="See solution" onclick="location = 'compSoluciones.html'" style='width: 375px; height:40px; margin-top: 10px;'>
+        </div>
+          <div>
+            <input type="button" id="volver" class="volver" value="Retry exercise" onclick="location = 'atributosTexto.html'" style='width: 375px; height:40px; margin-top: 10px;'>
           </div>
           <div>
-            <input type="button" id="volver" class="volver" value="Reintentar ejercicio" onclick="location = 'atributosTexto.html'" style='width: 375px; height:40px;'>
+            <input type="button" id="volver" class="volver" value="End activity" onclick="finalizarActividad()" style='width: 375px; height:40px; margin-top: 10px;'>
           </div> 
         </div>
     </body>

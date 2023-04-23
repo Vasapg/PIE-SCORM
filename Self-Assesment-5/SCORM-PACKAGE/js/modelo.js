@@ -42,3 +42,9 @@ function formaAtributo(atributo,tipo){
     }
     return sol;
 }
+
+/**
+ * Correo: relacion puntuación SUS
+ * Documento de especificaciones de modelo
+ * Ejemplo xml de ambos ejercicios
+ *  */
