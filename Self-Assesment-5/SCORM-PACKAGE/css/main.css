@@ -8,6 +8,45 @@
     justify-content: center;
 }
 
+.tablaFinal{
+    margin-top: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.bigimg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.documents{
+    border-width: 10px;
+    border-color: black;
+    background: white;
+    float: left;
+    width: 600px;
+    height: 400px;
+    margin: 20px auto; 
+    overflow: auto;   
+}
+
+.inicio{
+    background: #fff;
+    padding: 40 px;
+    width: 600px;
+    height: 500px;
+    margin: 20px auto;    
+}
+
 .documentoXML{
     background: #fff;
     padding: 40 px;
@@ -97,9 +136,6 @@ table, th, td {
     height: 500px;
     border-style: solid;
     overflow:scroll;
-    margin-left: 25%;
-    margin-right: 25%;
     grid-column: 1fr;
 }
 
-#page-mod-scorm-player .btn-secondary {display:none;}

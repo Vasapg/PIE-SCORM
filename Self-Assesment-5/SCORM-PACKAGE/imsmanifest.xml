@@ -18,7 +18,10 @@ Provided by Rustici Software - www.scorm.com.
 	</metadata>
 	<organizations default="B0" isvisible="false">
 		<organization identifier="B0" isvisible="false">
-			<title isvisible="false">Aplicacion</title> 
+			<title isvisible="false">Aplicacion</title>
+			<item identifier="i6" identifierref="r6" isvisible="false">
+				<title>instrucciones</title> 
+			</item>
 			<item identifier="i1" identifierref="r1" isvisible="false">
 				<title>Texto</title> 
 			</item>
@@ -30,9 +33,12 @@ Provided by Rustici Software - www.scorm.com.
 			</item>
 			<item identifier="i4" identifierref="r4" isvisible="false">
 				<title>calificaciones</title> 
-			</item>false
+			</item>
 			<item identifier="i5" identifierref="r5" isvisible="false">
 				<title>compSoluciones</title> 
+			</item>
+			<item identifier="i7" identifierref="r7" isvisible="false">
+				<title>final</title> 
 			</item>
 		</organization>
 	</organizations>
@@ -62,6 +68,14 @@ Provided by Rustici Software - www.scorm.com.
 			<file href="compSoluciones.html" />
 			<file href="css/main.css" />
 			<file href="js/compSol.js"/>
-		</resource>		
+		</resource>
+		<resource identifier="r6" type="webcontent" adlcp:scormtype="sco" href="instrucciones.html">
+			<file href="instrucciones.html" />
+		</resource>
+		<resource identifier="r7" type="webcontent" adlcp:scormtype="sco" href="final.html">
+			<file href="final.html" />			
+			<file href="css/main.css" />
+			<file href="js/final.js"/>
+		</resource>
 	</resources>
 </manifest>

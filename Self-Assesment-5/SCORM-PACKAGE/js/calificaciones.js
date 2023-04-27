@@ -64,6 +64,40 @@ document.getElementById("relaciones_sol").innerHTML=arrR_sol.length;
 document.getElementById("solucion_sel").innerHTML= solucion_sel + " (" + solucion + ")";
 document.getElementById("solucion_sol").innerHTML= solucion_sol + " (" + 10 + ")";
 
+if(!localStorage.getItem("notas"))
+{
+    var notas = [solucion_sel];
+    localStorage.setItem("notas", JSON.stringify(notas));
+    console.log(notas);
+    console.log(JSON.stringify(notas));
+}
+else{
+    var notas = JSON.parse(localStorage.getItem("notas"));
+    notas.push(solucion_sel);
+    console.log(notas);
+    localStorage.setItem("notas", JSON.stringify(notas));
+}
+var max = parseInt(localStorage.getItem("maxEjercicio"));
+var current = parseInt(localStorage.getItem("nEjercicio"));
+console.log(max - 1);
+console.log(current);
+if((max - 1) == current)
+{
+    document.getElementById("final").style.display = "block";
+    document.getElementById("next").style.display = "none";
+    localStorage.removeItem("nEjercicio");
+    localStorage.removeItem("config");
+}
+
+localStorage.removeItem("texto");
+localStorage.removeItem("procesos_sel");
+localStorage.removeItem("entidades_sel");
+localStorage.removeItem("flujos_sel");
+localStorage.removeItem("almacenes_sel");
+localStorage.removeItem("flujos_sel");
+localStorage.removeItem("relaciones_sel");
+localStorage.removeItem("relaciones_obj");
+
 function getCalificacion(arr1,arr2,tipo){
     for(var i=0; i<arr1.length; i++){
         for(var j=0; j<arr2.length;j++){
@@ -144,8 +178,14 @@ function finish() {
     } 
 }
 
-function finalizarActividad(){
+function finalizarActividad()
+{
     init();
     finish();
     parent.window.location = "https://moodle.upm.es/titulaciones/oficiales/mod/scorm/view.php?id=552608";
-}   
+}
+
+function sigEjercicio()
+{
+    window.location="atributos.html";
+}

@@ -46,32 +46,39 @@ function getDocumento(URL){
     .catch(error => console.error(error));
 }
 
-function getConfig()
-{
-    fetch("https://raw.githubusercontent.com/Vasapg/PIE-SCORM/main/Self-Assesment-5/ejercicios/config.txt")
-    .then(response => response.text())
-    .then(text => {
-        
-        localStorage.setItem("config", text.split('\n'));
+function getConfig() {
+    return fetch("https://raw.githubusercontent.com/Vasapg/PIE-SCORM/main/Self-Assesment-5/ejercicios/config.txt")
+      .then(response => response.text())
+      .then(text => {
+        localStorage.setItem("config", JSON.stringify(text.split('\n')));
         localStorage.setItem("nEjercicio", 0);
+        localStorage.setItem("maxEjercicio", text.split('\n').length);
+        var titulos = [];
+        localStorage.setItem("titulos", JSON.stringify(titulos));
         console.log(text);
-    })
-}
-
-function getUrl()
-{
-    if(!localStorage.getItem("config"))
-    {
-        getConfig();
+        console.log(((text.split('\n').length)-1));
+      });
+  }
+  
+  async function getUrl() {
+    if (!localStorage.getItem("config")) {
+      await getConfig();
     }
     var text = localStorage.getItem("config");
+    text = JSON.parse(text);
     var nEjercicio = parseInt(localStorage.getItem("nEjercicio"));
     console.log(nEjercicio);
-    console.log(text);
+    
+    var titulos = JSON.parse(localStorage.getItem("titulos"));
+    titulos.push(text[nEjercicio]);
+    localStorage.setItem("titulos", JSON.stringify(titulos));
+    console.log(titulos);
+
     getDocumento(text[nEjercicio + 1]);
     nEjercicio = nEjercicio + 2;
     localStorage.setItem("nEjercicio", nEjercicio);
-}
+  }
+  
 
 
 function comprobarXHTTP(){
@@ -89,5 +96,16 @@ function comprobarXHTTP(){
 function formatearTexto(texto){
     return texto.replace(/[\n]/gi,"<br>");
 }
+if(!localStorage.getItem("texto"))
+    window.onload = getUrl();
+else
+{
+    var texto = localStorage.getItem("texto");
+    var body = document.getElementById("documentoXML");
+    var textHTML = document.createElement("p");
+    textHTML.innerHTML = formatearTexto(texto);
 
-window.onload = getUrl();
+    var espacioHTML  = document.createElement("hr");
+    body.appendChild(textHTML);
+    body.appendChild(espacioHTML);
+}

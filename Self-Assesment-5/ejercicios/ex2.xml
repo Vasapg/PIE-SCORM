@@ -12,7 +12,7 @@
     <atribute type="flujo" weight="1">flujo1</atribute>
     <atribute type="almacen" weight="1">almacen1</atribute>
     <atribute type="relacion">entidad1[entidad1]-->|flujo1|proceso1((proceso1));</atribute>
-    <atribute type="relacion">proceso1((proceso1))-->|sin_definir|almacen1[(almacen1)];</atribute>
+    <atribute type="relacion">proceso1((proceso1))-->|flujo2|almacen1[(almacen1)];</atribute>
     <atribute type="relacion">proceso2((proceso2))-->|flujo1|entidad3[entidad3];</atribute>
-    <atribute type="relacion">entidad3[entidad3]-->|sin_definir|almacen1[(almacen1)];</atribute>
+    <atribute type="relacion">entidad3[entidad3]-->|flujo2|almacen1[(almacen1)];</atribute>
 </document>
