@@ -56,14 +56,16 @@ function botones_At(atributo,tipo,id){
             relacion.at = atributo;
             relacion.tipoat = tipo;
             j++;
+            agregarElemento(atributo);
         }
         else if(j==2){
-            alert("Selecciona el flujo de la relacion primero");
+            alert("First select the flow of the relation");
         }
         else{
             relacion.at2 = atributo;
             relacion.tipoat2 = tipo;
             añadir_obj(relacion);
+            agregarElemento(atributo);
             var rel = relacion.at + "---" + relacion.flujo + "--->" + relacion.at2;
             relaciones_str.push(rel);
             var bodyr = document.getElementById("botones_r");
@@ -81,20 +83,22 @@ function botones_At(atributo,tipo,id){
             }
             bodyr.appendChild(y);
             j=1;
+            clearSecondRow();
         }
     }
     }
     else{
         x.onclick = function(){
             if(j==1){
-                alert("Selecciona antes el primer argumento de la relacion");
+                alert("Select the firs argument of the relations, wheter it is a entity or a depot");
             }
             else if (j==2){
                 relacion.flujo = atributo;
                 j++;
+                agregarElemento(atributo)
             }
             else{
-                alert("Ya se ha seleccionado el flujo de datos de la relacion");
+                alert("A flow have been already selected");
             }
         }
     }
@@ -137,3 +141,28 @@ function añadir_obj(relacion){
     solucion.tipoat2 = relacion.tipoat2;
     relaciones_obj.push(solucion);
 }
+
+function clearSecondRow() {
+    var secondRow = document.getElementById("secondRow");
+    var cells = secondRow.getElementsByTagName("td");
+    for (var i = 0; i < cells.length; i++) {
+      cells[i].innerHTML = "";
+    }
+  }
+
+  function agregarElemento(element) {
+    var table = document.getElementById("tabla");
+    var rows = table.rows;
+    for (var i = 0; i < rows.length; i++) {
+      if (i === 1) { // solo la segunda fila
+        var cells = rows[i].cells;
+        for (var j = 0; j < cells.length; j++) {
+          var cell = cells[j];
+          if (cell.innerHTML === "") { // si la celda está vacía
+            cell.innerHTML = element;
+            return;
+          }
+        }
+      }
+    }
+  }

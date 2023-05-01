@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document>
     <text>
-    El sistema deberá generar un listado indicando los pedidos pendientes de entregar a los clientes
+    El sistema debera generar un listado indicando los pedidos pendientes de entregar a los clientes
     ⁃ Deben considerarse únicamente los pedidos de las últimas 24 horas
     ⁃ Junto con cada pedido, debe indicarse si el cliente se encuentra a corriente de pagos
     ⁃ El listado es enviado al director financiero

@@ -28,8 +28,16 @@ function verSolucionAlumno(titulo, texto, text_originales, tipos_originales, tex
                     text_alumno[i] = quitarEspacios(text_alumno[i]);
                     texto = texto.replace(text_alumno[i],'<div><div class="bocadillo-cuadrado-wrong">' + tipos_alumno[i] 
                     + '</div><strong>' + text_alumno[i] + '</strong></div>');
+                    console.log("he puesto un error" + i + j);
                 }
-            }            
+            }
+            else if(j == text_originales.length - 1)
+            {
+                text_alumno[i] = quitarEspacios(text_alumno[i]);
+                texto = texto.replace(text_alumno[i],'<div><div class="bocadillo-cuadrado-wrong">' + tipos_alumno[i] 
+                + '</div><strong>' + text_alumno[i] + '</strong></div>');
+                console.log("he puesto un error" + i + j);
+            }       
         }
     }
     body.innerHTML = '<h3>' + titulo + '</h3>' + '<hr>' + texto;
