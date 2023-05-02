@@ -10,6 +10,19 @@
     align-items: center;
 }
 
+.boton-circular {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 20px;
+  }
+
 .tablaFinal{
     margin-top: 30%;
     display: flex;
@@ -86,7 +99,7 @@ table, th, td {
 .celda{
     background: #d8d2d2;
     width: 350px;
-    height: 125px;
+    height: 150px;
     border-style: solid;
     margin: 5px;
     overflow:scroll;

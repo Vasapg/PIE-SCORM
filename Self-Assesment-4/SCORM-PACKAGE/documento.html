@@ -12,9 +12,9 @@
 <body>
 <!--This div helps to organize the html page as grids, which can scale out with the given space in the page-->
 <div class="wrapper">
-<!--Document that is presented to the user TODO: Put it left in the page, rith errors-->
+<!--Document that is presented to the user-->
   <div id="documentoXML" class="documentoXML"></div>
-<!--This div will help me to organiza all buttons at the rigth side of the page-->
+<!--This div will help me to organize all buttons at the rigth side of the page-->
   <div class="botonesError">
     <table>
       <tr>
@@ -24,20 +24,16 @@
             <input type="button" class="helpbtn" value="?" onclick="abrirPopup('helpBottom');"></td>
           </td>
       </tr>
+      <!--
       <tr>
         <td><input type="button" class="ver" id="ver_errores" value="Manage Errors" onclick="abrirPopup('t_errores');" 
           style="width: 250px; height:40px; text-align:center;"></td>
       </tr>
+    -->
       <tr>
         <td><input type="button" value="End review and see solution" onclick="abrirPopup('estasseguro');" 
           style='width: 250px; height:40px; text-align:center;'></td>
       </tr>
-      <!--
-      <tr>
-        <td><input type="button" value="Reset document and errors" onclick="abrirPopup('estasseguro3');" 
-          style='width: 250px; height:40px; text-align:center;'></td>
-      </tr>
-      -->
     </table>
   </div>
 </div>
@@ -109,7 +105,7 @@
   <input type="button" value="Yes" onclick="sigPagina();" class="siestoyseguro" style='width: 150px; height:40px'>
   <input type="button" value="No" onclick="cerrarPopup3('estasseguro');" class="noestoyseguro" style='width: 150px; height:40px'>
 </div>
-
+<!--
 <div class="popup" id="t_errores">
     <div class="cerrar" id="cerrar">
         <svg onclick="cerrarPopup();" class="bi bi-x-circle" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -122,15 +118,14 @@
       <div class="display_table_error", id="quitar_boton">
       </div>
     </center>
-    <!--
     <center>
       <input type="button" value="Display Error Table" onclick="tablaErrores();" class="display_table_error" id="quitar_boton">
     </center>
-    -->
     <center>
       <input type="button" value="Delete this error" onclick="abrirPopup('estasseguro2');" class="delete_error" id="delete_error" style='width: 150px; height:40px'>
     </center>   
 </div>
+-->
 
 <!--help popup for user -->
 <div class="popup" id="helpBottom">

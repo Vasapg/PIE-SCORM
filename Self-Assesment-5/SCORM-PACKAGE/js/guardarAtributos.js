@@ -40,7 +40,6 @@ function gestionDeTipo(tipo){
             var x = document.createElement("button");
             x.innerHTML = atributo;
             x.onclick = function(){
-                alert(procesos_sel);
                 for(var j=0; j<procesos_sel.length; j++ ){
                     if(procesos_sel[j] == x.innerHTML){
                         procesos_sel.splice(j,1);

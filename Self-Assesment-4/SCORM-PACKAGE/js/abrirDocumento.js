@@ -94,7 +94,7 @@ function yaEstaHecho(array, doc) {
 	return buleano;
 }
 
-//Formatea el texto en formato HTML¿?
+//pasa el texto a formato html
 function formatearTexto(texto) {
 	return texto.replace(/[\n]/gi, "<br>");
 }

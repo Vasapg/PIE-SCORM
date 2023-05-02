@@ -1,131 +1,85 @@
 var tipoDeError = [];
 var oraciones = [];
-var posiciones = [];
 var texto_error = [];
 var texto_original = document.getElementById("documentoXML").innerHTML;
 
-//Con esta función 
 
 document.getElementById("documentoXML").addEventListener("mouseup",function(){
+    
     var oracion = window.getSelection();
     if(oracion != ""){
-        var offset = oracion.anchorOffset;
-        var text = oracion.anchorNode.data;
-        var textOffset = document.getElementById("documentoXML").innerHTML.indexOf(text);
         texto_error.push(oracion.toString());
-        posiciones.push(textOffset + offset);
         enableButtons();
     }
 });
 
-//Con esta función realtamos el texto seleccionado de amarillo
-function colorDeFondo(texto, oracion, tipo){
-    texto = texto.replace(oracion, '<div class="unselectable"><div class="bocadillo-cuadrado">' + "" + tipo + "" + '</div><strong>' + oracion + '</strong></div>');
-    var body = document.getElementById("documentoXML");
-    body.innerHTML = texto;
-}
-
-//Con esta funcion se pretende resaltar en negrita el error seleccionado y soltar un bocadillo que indique su tipo
-
 //Se agrega el tipo de error
 function gestionDeTipo(tipo){
     var oracion = texto_error.pop().toString();
-    if(oracion.includes("\n"))
-        {
-            alert("errors can not be selected between two paragraphs");
-            disableButtons();
-            return;
-        }
     tipoDeError.push(tipo);
     oraciones.push(oracion);
     var oracion = oraciones.pop();
-    colorDeFondo(document.getElementById("documentoXML").innerHTML, oracion.toString() ,tipo);
+    resaltarTexto(tipo);
     oraciones.push(oracion.toString());
+    console.log("Array de oraciones:");
+    console.log(oraciones);
+    console.log("Array de tipos:");
+    console.log(tipoDeError);
     disableButtons();
     cerrarPopup3("TiposDeError");
 }
 
-function eliminarError(){
-    if(seleccionTabla != ''){
-        quitarColorDeFondo(oraciones[seleccionTabla], tipoDeError[seleccionTabla]);
-        tipoDeError.splice(seleccionTabla,1);
-        oraciones.splice(seleccionTabla,1);
-        posiciones.splice(seleccionTabla,1);
-        seleccionTabla = parseInt(seleccionTabla) + 1;
-        seleccionTabla = '';       
-    }
-    else{
-        alert("No has seleccionado ningún error");
-    }
-    document.getElementById("estasseguro2").style.display="none";
+function eliminarError(texto, tipo){
+    tipoDeError.splice(tipoDeError.indexOf(tipo),1);
+    oraciones.splice(oraciones.indexOf(texto),1);
+    console.log("Array de oraciones:");
+    console.log(oraciones);
+    console.log("Array de tipos:");
+    console.log(tipoDeError);
 }
 
-function reiniciarDocumento()
-{
-    document.getElementById("documentoXML").innerHTML = texto_original;
-    tipoDeError = [];
-    oraciones = [];
-    cerrarPopup3("estasseguro3");
-}
-
-//Quita el color de fondo
-function quitarColorDeFondo(oracion, tipo){
-    document.getElementById("documentoXML").innerHTML =
-     document.getElementById("documentoXML").innerHTML.replace('<div class="unselectable"><div class="bocadillo-cuadrado">' + tipo + '</div><strong>'
-      + oracion + '</strong></div>', oracion);
-}
-
-//Se crea y se muestra la tabla de errores
-function tablaErrores(){
-    var n_columnas = 2;
-    var n_filas = tipoDeError.length;
-    var n_errores = oraciones.length;
-    document.getElementById("quitar_boton").style.display="none";
-
-    var body = document.getElementById("t_errores")
-    var tabla   = document.createElement("table");
-    tabla.setAttribute("id","tabla");
-    var tblBody = document.createElement("tbody");
-
-    for(var i = 0; i<n_filas || i<n_errores; i++){
-        var hilera = document.createElement("tr");
-        for(var j = 0; j<n_columnas; j++){
-            var celda = document.createElement("td");
-            if(j == 0){
-                var textoCelda = document.createElement('INPUT');
-                textoCelda.setAttribute("type","radio");
-                textoCelda.setAttribute("name","seleccion_de_error");
-                textoCelda.setAttribute("value",i);
-            }
-            else{
-                var textoCelda = document.createTextNode(i+1 + " > " + tipoDeError[i] + " > " + oraciones[i]);             
-            }
-            celda.appendChild(textoCelda);
-            hilera.appendChild(celda);
-        }
-        tblBody.appendChild(hilera);
-    }  
-    tabla.appendChild(tblBody);
-    body.appendChild(tabla);
-    tabla.setAttribute("border", "1");
-
-    document.getElementById("delete_error").style.display="block";
-
-    $("input[name='seleccion_de_error']").on('change', function (){
-        seleccionTabla = $(this).val();
+//Con esta funcion se pretende resaltar en negrita el error seleccionado y soltar un bocadillo que indique su tipo
+//A su vez se añade un "listener", que permite que clickando el texto seleccionado, se elimine y vuelva a como antes
+function resaltarTexto(tipo) {
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+    const selectedText = range.toString();
+    const newNode = document.createElement("b");
+    newNode.style.position = 'relative';
+    newNode.style.display = 'inline-block';
+    const bubble = document.createElement("div");
+    const bubbleText = document.createTextNode(tipo);
+    bubble.style.display = 'inline-block';
+    bubble.style.background = '#000';
+    bubble.style.color = '#fff';
+    bubble.style.borderRadius = '5px';
+    bubble.style.padding = '5px';
+    bubble.style.position = 'relative';
+    bubble.style.top = '-2em';
+    bubble.style.left = '0.5em';
+    bubble.style.fontSize = '12px';
+    bubble.classList.add("bubble");
+    bubble.appendChild(bubbleText);
+    newNode.appendChild(document.createTextNode(selectedText));
+    newNode.appendChild(bubble);
+    range.deleteContents();
+    range.insertNode(newNode);
+    selection.removeAllRanges();
+  
+    newNode.addEventListener("click", function () {
+      const originalNode = document.createTextNode(selectedText);
+      range.deleteContents();
+      range.insertNode(originalNode);
+      selection.removeAllRanges();
+      eliminarError(selectedText, tipo);
     });
-}
+  }
 
 function abrirPopup(modal){
     document.getElementById(modal).style.display="block";
-    if(modal.toString() == "t_errores")
-    {
-        tablaErrores();
-    }
     if(modal == "estasseguro2")
         cerrarPopup();
 }
-
 
 function cerrarPopup(){
     document.getElementById("t_errores").style.display="none";
@@ -145,6 +99,8 @@ function cerrarPopup3(window){
 
 function sigPagina(){
     window.location = "compSoluciones.html";
+    console.log(tipoDeError);
+    console.log(oraciones);
     localStorage.setItem("tipoDeError",JSON.stringify(tipoDeError));
     localStorage.setItem("oraciones",JSON.stringify(oraciones));
 }
