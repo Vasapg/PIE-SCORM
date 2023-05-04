@@ -20,9 +20,16 @@
             </div>
             <div id="solucionAlumno" class="documentoXMLComp"></div>
             <div id="solucionCorrecta" class="documentoXMLComp"></div> 
-        </div>        
+        </div>
+        <div style="text-align: center;">
+            you may click in the solution errors to see a brief explanation
+        </div>
+        <br>
+        <div id="Comentarios" style="text-align: center;">
+            <input type="button" value="See solution Comments" onclick="displayComment();" style='width: 877px; height:40px; margin-top: 5px;'>
+        </div>    
         <div id="sig_pagina" style="text-align: center;">
-            <input type="button" value="See document grade" onclick="location='calificacion.html'" style='width: 877px; height:40px'>
+            <input type="button" value="See document grade" onclick="location='calificacion.html'" style='width: 877px; height:40px; margin-top: 5px;'>
         </div>    
     </body>
     <script type="text/javascript" src="js/verSolucion.js"></script>
@@ -40,9 +47,11 @@
     tipos_errores = JSON.parse(tipos_errores);
     var pesos_errores = localStorage.getItem("pesos_errores");
     pesos_errores = JSON.parse(pesos_errores);
+    var comments = JSON.parse(localStorage.getItem("comments"));
     var id1 = "solucionCorrecta";
 
-    window.onload = verSolucionXML(titulo,texto,texto_errores,tipos_errores,id1);
+    console.log(comments);
+    window.onload = verSolucionXML(titulo,texto,texto_errores,tipos_errores,id1,comments);
 
     var id2 = "solucionAlumno";
     

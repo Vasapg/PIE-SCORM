@@ -30,6 +30,7 @@ function abrirDocumento() {
 	var texto_errores = [];
 	var tipos_errores = [];
 	var pesos_errores = [];
+	var comments = [];
 	var numErrores = xmlDoc.getElementsByTagName("defect").length;
 
 	//Con este bucle buscamos guardar en los arrays los textos de error, con su tipo y pesos.
@@ -37,10 +38,12 @@ function abrirDocumento() {
 		var txt_Error = xmlDoc.getElementsByTagName("defect")[i].childNodes[0].nodeValue;
 		var tipo_Error = xmlDoc.getElementsByTagName("defect")[i].getAttribute("type");
 		var peso_Error = xmlDoc.getElementsByTagName("defect")[i].getAttribute("weight");
+		var comment = xmlDoc.getElementsByTagName("defect")[i].getAttribute("comment");
 
 		texto_errores.push(txt_Error);
 		tipos_errores.push(tipo_Error);
 		pesos_errores.push(peso_Error);
+		comments.push(comment);
 	}
 	var arrayDeTitulos = localStorage.getItem("titulos");
 	arrayDeTitulos = JSON.parse(arrayDeTitulos);
@@ -53,6 +56,8 @@ function abrirDocumento() {
 	localStorage.setItem("texto_errores", JSON.stringify(texto_errores));
 	localStorage.setItem("tipos_errores", JSON.stringify(tipos_errores));
 	localStorage.setItem("pesos_errores", JSON.stringify(pesos_errores));
+	localStorage.setItem("comments", JSON.stringify(comments))
+	localStorage.setItem("global", xmlDoc.getElementsByTagName("Global")[0].childNodes[0].nodeValue)
 
 	//Aqui preparamos el texto para presentarlo en formato HTML
 	var body = document.getElementById("documentoXML");

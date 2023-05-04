@@ -47,8 +47,9 @@
         3.1.2. When an internal button is pressed, the elevator will move to the corresponding floor.
 
     </text>
-    <defect type="Ambiguity" weight="2">This SRS describes the detailed requirements for the FAMILY model of the ACME elevator.</defect>
-    <defect type="Ambiguity" weight="5">The FAMILY model is a regular elevator.</defect>
-    <defect type="Ambiguity" weight="6">To ease safety operation, FAMILY models must follow the same conventions than regular elevators.</defect>
-    <defect type="Ambiguity" weight="4">The only function the user can perform is to move the elevator to the designated floor.</defect>
+    <Global> Este ejercicio es un ejemplo </Global>
+    <defect type="Ambiguity" weight="2" comment="Esta opcion es ambigua">This SRS describes the detailed requirements for the FAMILY model of the ACME elevator.</defect>
+    <defect type="Ambiguity" weight="5" comment="Esta opcion es ambigua">The FAMILY model is a regular elevator.</defect>
+    <defect type="Ambiguity" weight="6" comment="Esta opcion es ambigua">To ease safety operation, FAMILY models must follow the same conventions than regular elevators.</defect>
+    <defect type="Ambiguity" weight="4" comment="Esta opcion es ambigua">The only function the user can perform is to move the elevator to the designated floor.</defect>
 </document>

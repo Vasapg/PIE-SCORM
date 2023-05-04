@@ -1,10 +1,14 @@
-function verSolucionXML(titulo,texto,texto_errores,tipos_errores,id)
+function verSolucionXML(titulo,texto,texto_errores,tipos_errores,id,comments)
 {
     var body = document.getElementById(id);  
     texto = quitarEspacios(texto);  
-    for(var i = 0; i<texto_errores.length; i++){
+    for(var i = 0; i<texto_errores.length; i++)
+    {
         texto_errores[i] = quitarEspacios(texto_errores[i]);
-        texto = texto.replace(texto_errores[i],'<div><div class="bocadillo-cuadrado">' + tipos_errores[i] + '</div><strong>' + texto_errores[i] + '</strong></div>');
+        texto = texto.replace(texto_errores[i], '<div><div class="bocadillo-cuadrado" onclick="handleClick(\'' + comments[i] + '\')">' + 
+                tipos_errores[i] + '</div><strong>' + texto_errores[i] + '</strong></div>');
+
+
     }    
     body.innerHTML = '<h3>' + titulo + '</h3>' + '<hr>' + texto;
 }
@@ -87,3 +91,74 @@ function calcOchenta(array){
     }
     return calculo;
 }
+
+function displayComment()
+{
+    var global = localStorage.getItem("global").toString();
+    handleClick(global);
+}
+
+function handleClick(texto) {
+    // Crear el elemento de la ventana
+    const ventana = document.createElement("div");
+    ventana.style.display = "flex";
+    ventana.style.justifyContent = "center";
+    ventana.style.alignItems = "center";
+    ventana.style.position = "fixed";
+    ventana.style.top = "0";
+    ventana.style.left = "0";
+    ventana.style.width = "100%";
+    ventana.style.height = "100%";
+    ventana.style.background = "rgba(0,0,0,0.5)";
+    ventana.style.zIndex = "999";
+  
+    // Crear el elemento del contenido
+    const contenido = document.createElement("div");
+    contenido.style.background = "#fff";
+    contenido.style.padding = "20px";
+    contenido.style.borderRadius = "10px";
+    contenido.style.boxShadow = "0px 0px 10px rgba(0,0,0,0.5)";
+    contenido.style.position = "relative";
+  
+    // Agregar el texto al contenido
+    const textoContenido = document.createTextNode(texto);
+    contenido.appendChild(textoContenido);
+  
+    // Agregar el contenido a la ventana
+    ventana.appendChild(contenido);
+  
+    // Crear el botón de cerrar
+    const cerrar = document.createElement("button");
+    cerrar.innerHTML = "X";
+    cerrar.style.background = "#fff";
+    cerrar.style.border = "none";
+    cerrar.style.borderRadius = "50%";
+    cerrar.style.color = "#000";
+    cerrar.style.fontSize = "16px";
+    cerrar.style.position = "absolute";
+    cerrar.style.top = "-10px";
+    cerrar.style.right = "-10px";
+    cerrar.style.width = "30px";
+    cerrar.style.height = "30px";
+    cerrar.style.cursor = "pointer";
+  
+    // Función para cerrar la ventana
+    function cerrarVentana(){
+      ventana.style.display = "none";
+    }
+  
+    // Agregar el botón de cerrar a la ventana y asignar el evento click
+    contenido.appendChild(cerrar);
+    cerrar.addEventListener("click", cerrarVentana);
+  
+    // Asignar el evento click fuera de la ventana para cerrarla
+    ventana.addEventListener("click", function (e) {
+      if (e.target === this) {
+        cerrarVentana();
+      }
+    });
+  
+    // Agregar la ventana al documento
+    document.body.appendChild(ventana);
+  }
+  

@@ -5,7 +5,6 @@ var texto_original = document.getElementById("documentoXML").innerHTML;
 
 
 document.getElementById("documentoXML").addEventListener("mouseup",function(){
-    
     var oracion = window.getSelection();
     if(oracion != ""){
         texto_error.push(oracion.toString());
@@ -16,6 +15,19 @@ document.getElementById("documentoXML").addEventListener("mouseup",function(){
 //Se agrega el tipo de error
 function gestionDeTipo(tipo){
     var oracion = texto_error.pop().toString();
+    if (oracion.length <= 10)
+    {
+        alert("text selected must have more than 10 characters");
+        disableButtons();
+        return ;
+    }
+    const matches = oracion.match(/(\r\n|\n|\r)/gm);
+
+    if (matches && matches.length >= 1) {
+        alert("Errors cannot be selected between paragraphs");
+        disableButtons();
+        return ;
+    }
     tipoDeError.push(tipo);
     oraciones.push(oracion);
     var oracion = oraciones.pop();
