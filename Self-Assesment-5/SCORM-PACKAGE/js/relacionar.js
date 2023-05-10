@@ -10,7 +10,7 @@ arrp = JSON.parse(procesos);
 arre = JSON.parse(entidades);
 arrf = JSON.parse(flujos);
 arra = JSON.parse(almacenes);
-//arrf.unshift("sin_definir");
+
 if(!localStorage.getItem("relaciones_sel") || !localStorage.getItem("relaciones_obj")){ 
 relaciones_obj = [];
 relaciones_str = [];
@@ -45,6 +45,11 @@ for(var i=0; i<arra.length ; i++){
     botones_At(arra[i],"almacen",document.getElementById("botones_a"));
 }
 
+function clearRel()
+{
+    j = 1;
+    clearSecondRow();
+}
 
 function botones_At(atributo,tipo,id){
     var bodyp = id;

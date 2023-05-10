@@ -77,7 +77,7 @@ function getConfig() {
   }
   
   async function getUrl() {
-    if (!localStorage.getItem("config")) {
+    if (!localStorage.getItem("urls")) {
       await getConfig();
     }
     var nEjercicio = parseInt(localStorage.getItem("nEjercicio"));

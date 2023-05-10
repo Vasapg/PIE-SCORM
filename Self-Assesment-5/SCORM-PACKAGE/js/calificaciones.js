@@ -66,9 +66,9 @@ document.getElementById("solucion_sol").innerHTML= solucion_sol + " (" + 10 + ")
 
 var max = parseInt(localStorage.getItem("maxEjercicio"));
 var current = parseInt(localStorage.getItem("nEjercicio"));
-console.log(max - 1);
+console.log(max);
 console.log(current);
-if((max - 1) == current)
+if((max) == current)
 {
     document.getElementById("final").style.display = "block";
     document.getElementById("next").style.display = "none";
