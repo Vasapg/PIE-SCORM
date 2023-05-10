@@ -28,6 +28,9 @@
         </center>
         <div id="finalizar">
         </div>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <input type="button" id="endButton" class="volver" value="End activity" onclick="finalizarActividad()" style="width: 375px; height:40px; display: none;">
+        </div>
         <div id="otro_documento">
         </div>
     </div>
@@ -77,6 +80,7 @@
         body.textContent = "You have successfully completed the exercise";
         init();
         finish();
+        document.getElementById("endButton").style.display = "block";
     }
     else{
         var body = document.getElementById("otro_documento");

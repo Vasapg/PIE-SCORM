@@ -5,10 +5,8 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"  crossorigin="anonymous"></script>
 </head>
-
 <body>
 <!--This div helps to organize the html page as grids, which can scale out with the given space in the page-->
 <div class="wrapper">
@@ -19,10 +17,8 @@
     <table>
       <tr>
         <td><input type="button" class="ver" id="Select Error" value="Select error" onclick="abrirPopup('TiposDeError');" 
-          style="width: 250px; height:40px; text-align:center;"></td>
-          <td>
-            <input type="button" class="helpbtn" value="?" onclick="abrirPopup('helpBottom');"></td>
-          </td>
+          style="width: 250px; height:40px; text-align:center;">
+        </td>
       </tr>
       <tr>
         <td><input type="button" value="End review and see solution" onclick="abrirPopup('estasseguro');" 
@@ -176,6 +172,13 @@
 
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" integrity="sha384-zozoc4FO9/jnUJP2lXYYgzcesIE08YvSt3sF6q24EsX20/aYGZ/qN4Imo1C+k5Wc" crossorigin="anonymous"></script>
+<script>
+  window.addEventListener('load', function() {
+    // aquí puedes utilizar la función marked
+    console.log(marked.parse('# Hello, world!'));
+  });
+</script>
 <script type="text/javascript" src="js/guardarErrores.js"></script>
 <script type="text/javascript" src="js/abrirDocumento.js"></script>
 </html>

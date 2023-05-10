@@ -101,6 +101,7 @@ function yaEstaHecho(array, doc) {
 
 //pasa el texto a formato html
 function formatearTexto(texto) {
+	texto = marked.parse(texto);
 	return texto.replace(/[\n]/gi, "<br>");
 }
 

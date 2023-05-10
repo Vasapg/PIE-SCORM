@@ -113,3 +113,8 @@ function stringToInt(array){
     }
     return array;
 }
+
+function finalizarActividad()
+{
+    parent.window.location = "https://moodle.upm.es/titulaciones/oficiales/mod/scorm/view.php?id=52416";
+}

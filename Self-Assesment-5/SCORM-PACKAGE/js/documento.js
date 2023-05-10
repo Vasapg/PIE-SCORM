@@ -47,16 +47,29 @@ function getDocumento(URL){
 }
 
 function getConfig() {
-    return fetch("https://raw.githubusercontent.com/Vasapg/PIE-SCORM/main/Self-Assesment-5/ejercicios/config.txt")
+    return fetch("https://raw.githubusercontent.com/Vasapg/PIE-SCORM/main/Self-Assesment-5/ejercicios/config.xml")
       .then(response => response.text())
       .then(text => {
-        localStorage.setItem("config", JSON.stringify(text.split('\n')));
+        var infoxml = new DOMParser().parseFromString(data, "text/xml");
         localStorage.setItem("nEjercicio", 0);
-        localStorage.setItem("maxEjercicio", text.split('\n').length);
+        localStorage.setItem("maxEjercicio", parseInt(infoxml.getElementsByTagName("numExercises")));
         var titulos = [];
+        let urls = [];
+        
+        // obtiene todas las etiquetas "title" y "url"
+        let titleTags = xmlDoc.getElementsByTagName("title");
+        let urlTags = xmlDoc.getElementsByTagName("url");
+        
+        // itera sobre las etiquetas y guarda los contenidos en los arrays
+        for (let i = 0; i < titleTags.length; i++) 
+        {
+          titulos.push(titleTags[i].textContent);
+          urls.push(urlTags[i].textContent);
+        }
+        console.log(titulos);
+        console.log(urls);
+        localStorage.setItem("urls", JSON.stringify(urls));
         localStorage.setItem("titulos", JSON.stringify(titulos));
-        console.log(text);
-        console.log(((text.split('\n').length)-1));
       });
   }
   
@@ -64,18 +77,14 @@ function getConfig() {
     if (!localStorage.getItem("config")) {
       await getConfig();
     }
-    var text = localStorage.getItem("config");
-    text = JSON.parse(text);
     var nEjercicio = parseInt(localStorage.getItem("nEjercicio"));
     console.log(nEjercicio);
-    
-    var titulos = JSON.parse(localStorage.getItem("titulos"));
-    titulos.push(text[nEjercicio]);
-    localStorage.setItem("titulos", JSON.stringify(titulos));
-    console.log(titulos);
 
-    getDocumento(text[nEjercicio + 1]);
-    nEjercicio = nEjercicio + 2;
+    var url = JSON.parse(localStorage.getItem("urls"));
+    url = url[nEjercicio];
+
+    getDocumento(url);
+    nEjercicio = nEjercicio + 1;
     localStorage.setItem("nEjercicio", nEjercicio);
   }
   
