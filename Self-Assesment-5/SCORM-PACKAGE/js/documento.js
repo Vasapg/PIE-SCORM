@@ -49,19 +49,22 @@ function getDocumento(URL){
 function getConfig() {
     return fetch("https://raw.githubusercontent.com/Vasapg/PIE-SCORM/main/Self-Assesment-5/ejercicios/config.xml")
       .then(response => response.text())
-      .then(text => {
-        var infoxml = new DOMParser().parseFromString(data, "text/xml");
+      .then(data => {
+        var xmlDoc = new DOMParser().parseFromString(data, "text/xml");
         localStorage.setItem("nEjercicio", 0);
-        localStorage.setItem("maxEjercicio", parseInt(infoxml.getElementsByTagName("numExercises")));
+        localStorage.setItem("maxEjercicio", parseInt(xmlDoc.getElementsByTagName("numExercises")[0].childNodes[0].nodeValue));
         var titulos = [];
-        let urls = [];
+        var urls = [];
         
         // obtiene todas las etiquetas "title" y "url"
-        let titleTags = xmlDoc.getElementsByTagName("title");
-        let urlTags = xmlDoc.getElementsByTagName("url");
+        var titleTags = xmlDoc.getElementsByTagName("title");
+        var urlTags = xmlDoc.getElementsByTagName("url");
+        console.log(titleTags);
+        console.log(urlTags);
+        console.log(xmlDoc);
         
         // itera sobre las etiquetas y guarda los contenidos en los arrays
-        for (let i = 0; i < titleTags.length; i++) 
+        for (var i = 0; i < titleTags.length; i++) 
         {
           titulos.push(titleTags[i].textContent);
           urls.push(urlTags[i].textContent);
