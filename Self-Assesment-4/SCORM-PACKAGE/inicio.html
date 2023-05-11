@@ -62,29 +62,6 @@
         }
         return xhttp;
     }
-    //Esta funcion se encarga de tomar todos los documentos del xml que los especifica y enviarlos al servicio moodle, 
-    //luego guardara la respuesta, y con ella sacara el los documentos y los guardara en el LocalStorage junto al numero de estos.
-    function cogerDocs(){
-        var xhttp = comprobarXHTTP();
-        xhttp.open("GET", "xml/AllSpecificationDocuments.xml", false);
-        xhttp.send();
-        var xmlDoc = xhttp.responseXML;
-        var numDocs = xmlDoc.getElementsByTagName("name").length;
-        var  array = [];
-        for(var i = 0; i < numDocs; i++)
-        {
-            var name = xmlDoc.getElementsByTagName("name")[i].childNodes[0].nodeValue;
-            array.push(name);
-        }
-        localStorage.setItem("numDocs",array.length);
-        localStorage.setItem("array_de_documentos", JSON.stringify(array));
-        console.log(array); 
-    }
-
-    var titulos = [];
-    localStorage.setItem("titulos", JSON.stringify(titulos));
-    var docsHechos = [];
-    localStorage.setItem("docsHechos", JSON.stringify(docsHechos));
     
     //Le dice a la ventada que todos los documentos han sido cargados?¿
     window.onload = cogerDocs();

@@ -1,4 +1,0 @@
-TODO SELF-ASSESTMENT 4
--Arreglar fallo de que el replace, siempre pilla la misma oracion dos veces, pues encuentra la primera ocurrencia
--Comentar todo el códgio
--Intentar eliminar el mayor numero de inconsistencias posible
