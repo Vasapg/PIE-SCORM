@@ -63,7 +63,7 @@
         localStorage.setItem("documentosRealizados",JSON.stringify(documentosRealizados));
     }    
 
-    if(documentosRealizados.length == parseInt(localStorage.getItem("numDocs"))){
+    if(documentosRealizados.length == parseInt(localStorage.getItem("maxEjercicio"))){
         var tabla = document.getElementById("tabla");
         var fila = document.createElement("tr");
         var notaFinal = document.createElement("th");

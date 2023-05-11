@@ -63,7 +63,7 @@ function abrirDocumento(URL){
 function getConfig() {
     return fetch("https://raw.githubusercontent.com/Vasapg/PIE-SCORM/main/Self-Assesment-4/exercises/config.xml")
       .then(response => response.text())
-      .then(data => {
+      .then(data => {	
         var xmlDoc = new DOMParser().parseFromString(data, "text/xml");
         localStorage.setItem("nEjercicio", 0);
         localStorage.setItem("maxEjercicio", parseInt(xmlDoc.getElementsByTagName("numExercises")[0].childNodes[0].nodeValue));
