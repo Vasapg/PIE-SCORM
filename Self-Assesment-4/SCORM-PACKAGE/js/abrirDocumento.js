@@ -75,7 +75,7 @@ function getConfig() {
         var urlTags = xmlDoc.getElementsByTagName("url");
         console.log(titleTags);
         console.log(urlTags);
-        console.log(xmlDoc);
+        console.log("bruh");
         
         // itera sobre las etiquetas y guarda los contenidos en los arrays
         for (var i = 0; i < titleTags.length; i++) 
@@ -133,8 +133,9 @@ function yaEstaHecho(array, doc) {
 
 //pasa el texto a formato html
 function formatearTexto(texto) {
+	texto = texto.replace(/[\n]/gi, "<br>");
 	texto = marked.parse(texto);
-	return texto.replace(/[\n]/gi, "<br>");
+	return texto;
 }
 
 window.onload = getUrl();

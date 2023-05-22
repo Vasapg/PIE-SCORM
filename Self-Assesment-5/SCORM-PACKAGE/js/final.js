@@ -2,6 +2,8 @@ var media = [];
 llenarTablaConArray();
 
 var API = null;
+init();
+finish();
 
 function FindAPI(win) {
     while ((win.API == null) && (win.parent != null) && (win.parent != win)) {
@@ -37,14 +39,12 @@ function finish() {
         API.LMSSetValue("cmi.core.score.max",);
         API.LMSSetValue("cmi.core.score.min",0);
         API.LMSSetValue("cmi.core.score.raw", mediaArray(media));
-        API.LMSFinish(""); 
+        API.LMSFinish("");
     } 
 }
 
 function finalizarActividad()
 {
-    init();
-    finish();
     parent.window.location = "https://moodle.upm.es/titulaciones/oficiales/mod/scorm/view.php?id=552608";
 }
 

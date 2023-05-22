@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<head>
+    <style>
+       #accionesdiv, #reglasdiv, #estadosdiv, #div4 {
+            float: left;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow:hidden;
+            width: 250px;
+            height: 300px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+        .ejdiv{
+            height:500px;
+            width:700px;
+            border:1px solid #ccc;
+            font:16px/26px Georgia, Garamond, Serif;
+            overflow:auto
+        }
+    </style>
+    <script src="ejercicios.js"></script>
+	<script src="SCORMGeneric.js"></script>
+	<script type="text/javascript">
+		 //json = JSON.parse(myObj)
+
+		 function SubmitAnswers(total, correct){
+		 	ScormProcessSetValue("cmi.core.score.raw", (correct/total)*100);
+        	ScormProcessSetValue("cmi.core.score.min", "0");
+        	ScormProcessSetValue("cmi.core.score.max", "100");
+         }
+         
+        function imprimirEjercicio(Ejercicio){
+            for(elem in Ejercicio){
+                ejer = Ejercicio[elem]
+                ejerid = ejer.id
+                ejertitulo = ejer.titulo
+                ejertipo = ejer.tipo
+                tipoejer = ejer.tipoejercicio
+
+                subejer = ejer.subrequisitos
+
+                //Si el ejercicio es del tipo requisitos
+                if(tipoejer == "0" ){
+                    respuestas.push(new myEjercicio(ejerid+""+elem, ejertitulo, ejertipo))
+                    document.write("<b>"+ejerid+"</b>")
+                    title = printDraggable(ejertitulo+"<br>",ejerid+""+elem)
+                    for(subelem in subejer){
+                        subsubejer = subejer[subelem]
+                        subejertitulo = subsubejer.titulo
+                        subejertipo = subsubejer.tipo
+                        document.write("<ul>")
+                        document.write("<li>")
+                        printDraggable(subejertitulo+"<br>",ejerid+"-"+subelem)
+                        respuestas.push(new myEjercicio(ejerid+"-"+subelem, subsubejer, subejertipo))
+                        document.write("</li>")
+                        document.write("</ul>")
+                    } 
+                }
+                }
+
+                for(elem in respuestas){
+                typeres = respuestas[elem].type
+                if(typeres == 1){
+                    totalacciones++
+                } else if(typeres == 2){
+                    totalreglas++
+                } else if(typeres == 3){
+                    totalestado++
+                }
+                }
+        }
+
+
+	</script>
+    <script>
+        //myEjercicio
+        function myEjercicio(id, text, type){
+            this.id = id
+            this.text = text
+            this.type = type
+        }
+    </script>
+    
+    <script>
+        var respuestas = []
+
+        var acciones = []
+        var reglas = []
+        var estados = []
+
+        var totalacciones = 0
+        var totalreglas = 0
+        var totalestado = 0
+
+        //check your answers
+        function check(){
+
+            accionesok = 0
+            reglasok = 0
+            estadosok = 0
+            
+            for(elem in respuestas){
+                if(respuestas[elem].type == 1){
+                    if(acciones.includes(respuestas[elem].id)){
+                        accionesok++
+                    }
+                }else if(respuestas[elem].type == 2){
+                    if(reglas.includes(respuestas[elem].id)){
+                        reglasok++
+                    }
+                }else if(respuestas[elem].type == 3){
+                    if(estados.includes(respuestas[elem].id)){
+                        estadosok++
+                    }
+                }
+            }
+            SubmitAnswers(totalacciones+totalreglas+totalestado, accionesok+reglasok+estadosok)
+
+            document.body.innerHTML = ""
+
+            document.write("<br><h1>Your grade is: "+((accionesok+reglasok+estadosok)/(totalacciones+totalreglas+totalestado))*100+" / 100")
+
+            //check logic
+            document.write("<h2>You got "+accionesok+" Actions right out of "+totalacciones+"</h2><br><br>")
+            if(accionesok <= Math.floor(totalacciones/2)){
+                document.write("Are you sure that you understand Actions? Remember what your class notes tell you: \"Ations are what the system <i>does</i>\"<br><br><br>")
+            }
+            document.write("<h2>You got "+reglasok+" Rules right out of "+totalreglas+"</h2><br><br>")
+            if(reglasok <= Math.floor(totalreglas/2)){
+                document.write("Are you sure that you understand Rules? Remember what your class notes tell you: \"Rules are found tipically inside Actions, they are <i>conditions</i> that modify the behaviour of the system.\"<br><br><br>")
+            }
+            document.write("<h2>You got "+estadosok+" States right out of "+totalestado+"</h2><br><br>")
+            if(estadosok <= Math.floor(totalestado/2)){
+                document.write("Are you sure that you understand States? Remember what your class nores tell you: \"States are tipically found <i>outside</i> Actions, they are situations that modify the behaviour of the system, like \"modes\", that can allow or forbid the execution of Actions\"<br><br><br>")
+            }
+        
+            SCOFinish()
+        }
+
+        //clear the boxes
+        function clearing(){
+            document.getElementById("accionesdiv").innerHTML = "<u>Acciones</u><br>"
+            acciones = []
+            document.getElementById("reglasdiv").innerHTML = "<u>Reglas</u><br>"
+            reglas = []
+            document.getElementById("estadosdiv").innerHTML = "<u>Estados</u><br>"
+            estados = []
+        }
+
+        function printDraggable(text, id){
+            
+            document.write('<a id="'+id+'" draggable="true" ondragstart="drag(event)">'+text+'</a>')
+            return id
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+            
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+
+            box = ev.target.id
+            elementos = ev.target.children
+            texto = document.getElementById(data).text
+
+            
+            if(box == "accionesdiv"){
+                if(!acciones.includes(data)){
+                    document.getElementById(box).innerHTML = document.getElementById(box).innerHTML+texto+"<br>"
+                    acciones.push(data)
+                }
+                
+
+            } else if(box == "reglasdiv"){
+                if(!reglas.includes(data)){
+                    document.getElementById(box).innerHTML = document.getElementById(box).innerHTML+texto+"<br>"
+                    reglas.push(data)
+                }
+                
+                
+            } else if(box == "estadosdiv"){
+                if(!estados.includes(data)){
+                    document.getElementById(box).innerHTML = document.getElementById(box).innerHTML+texto+"<br>"
+                    estados.push(data)
+                }
+            } 
+        }
+
+
+        function chivato(ev){
+        }
+    </script>
+
+    <title>Ejercicio Requisitos</title>
+
+</head>
+<body  onload="SCOInitialize()" onunload="SCOFinish()" onbeforeunload="SCOFinish()">
+    <script>
+        
+        document.write("<div class=\"ejdiv\">")
+        imprimirEjercicio(Ejercicios)
+        document.write("</div>")
+        
+    </script>
+
+    <p>
+        <div id="accionesdiv" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="chivato(event)"><u>Acciones</u><br></div>
+    
+        <div id="reglasdiv" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="chivato(event)"><u>Reglas</u><br></div>
+
+        <div id="estadosdiv" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="chivato(event)"><u>Estados</u><br></div>
+    </p>
+    
+    
+
+    <p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <button onclick="check()">Solve</button>
+
+        <button onclick="clearing()">Clear</button> 
+    </p>
+    
+</body>
+</html>

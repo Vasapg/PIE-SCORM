@@ -63,7 +63,7 @@
         localStorage.setItem("documentosRealizados",JSON.stringify(documentosRealizados));
     }    
 
-    if(documentosRealizados.length == parseInt(localStorage.getItem("maxEjercicio"))){
+    if(parseInt(localStorage.getItem("nEjercicio")) == parseInt(localStorage.getItem("maxEjercicio"))){
         var tabla = document.getElementById("tabla");
         var fila = document.createElement("tr");
         var notaFinal = document.createElement("th");
@@ -77,9 +77,9 @@
         tabla.appendChild(fila);
 
         var body = document.getElementById("finalizar");
-        body.textContent = "You have successfully completed the exercise";
         init();
         finish();
+        body.textContent = "You have successfully completed the exercise";
         document.getElementById("endButton").style.display = "block";
     }
     else{
@@ -146,7 +146,7 @@
             API.LMSSetValue("cmi.core.score.max",);
             API.LMSSetValue("cmi.core.score.min",0);
             API.LMSSetValue("cmi.core.score.raw",reglaDeTres(suma(notasDocumentos),suma(notasAlumno)));
-            API.LMSFinish(""); 
+            API.LMSFinish("");
         } 
     }
 

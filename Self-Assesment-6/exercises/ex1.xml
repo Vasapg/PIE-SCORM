@@ -1,0 +1,67 @@
+<Ejercicios>
+	<ejercicio id="[RF 43]">
+		<titulo>Notifications are added to a notification interface, which contains information about:</titulo>
+		<tipoejercicio>0</tipoejercicio>
+		<tipo>1</tipo>
+		<subrequisitos>
+			<subrequisito>
+				<titulo>The reason of the notification</titulo>
+				<tipo>0</tipo>
+			</subrequisito>
+			<subrequisito>
+				<titulo>The kind of the notification</titulo>
+				<tipo>0</tipo>
+			</subrequisito>
+			<subrequisito>
+				<titulo>The type of the notification</titulo>
+				<tipo>0</tipo>
+			</subrequisito>
+			<subrequisito>
+				<titulo>The date/time of the notification</titulo>
+				<tipo>2</tipo>
+			</subrequisito>
+		</subrequisitos>
+	</ejercicio>
+	<ejercicio id="[RF 44]">
+		<titulo>When the user is able 'take' a notification (locked for others)</titulo>
+		<tipoejercicio>0</tipoejercicio>
+		<tipo>3</tipo>
+		<subrequisitos>
+			<subrequisito>
+				<titulo>do the action and mark the notification as 'finished'.</titulo>
+				<tipo>1</tipo>
+			</subrequisito>
+			<subrequisito>
+				<titulo>If the action is finished, the user name is stored in the notification.</titulo>
+				<tipo>2</tipo>
+			</subrequisito>
+		</subrequisitos>
+	</ejercicio>
+	<ejercicio id="[FR 12]">
+		<titulo>Loan of bibliographical resources</titulo>
+		<tipoejercicio>0</tipoejercicio>
+		<tipo>1</tipo>
+		<subrequisitos>
+			<subrequisito>
+				<titulo>The loan period shall be:</titulo>
+				<tipo>0</tipo>
+			</subrequisito>
+			<subrequisito>
+				<titulo>&gt; 7 days for students and administrative and support staff.</titulo>
+				<tipo>2</tipo>
+			</subrequisito>
+			<subrequisito>
+				<titulo>&gt; 15 days for faculty.</titulo>
+				<tipo>2</tipo>
+			</subrequisito>
+			<subrequisito>
+				<titulo>If the loan period expires on a non-working day, the loan shall BE due on the next working day.</titulo>
+				<tipo>2</tipo>
+			</subrequisito>
+			<subrequisito>
+				<titulo>Suspended users shall not be able to borrow books.</titulo>
+				<tipo>3</tipo>
+			</subrequisito>
+		</subrequisitos>
+	</ejercicio>
+</Ejercicios>
