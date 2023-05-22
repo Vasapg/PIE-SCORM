@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <numExercises>2</numExercises>
+    <exercise id="1">
+        <title>Ejercicio1</title>
+        <url>https://raw.githubusercontent.com/Vasapg/PIE-SCORM/main/Self-Assesment-6/exercises/ex1.xml</url>
+    </exercise>
+</document>
